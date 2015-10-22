@@ -15,8 +15,8 @@ require 'flickraw'
 
 ####################################################
 # These values should be in environment variables
-FlickRaw.api_key = "put api key here"
-FlickRaw.shared_secret = "put secret here"
+FlickRaw.api_key = "66869e72bc32152a2c19362e34d4051c"
+FlickRaw.shared_secret = "8c74659393822427"
 ####################################################
 
 
