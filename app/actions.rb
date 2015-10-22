@@ -8,21 +8,24 @@ helpers do
       end
   end
 
+  # def current_user
+  #   if cookies[:user_id]
+  #     User.find(cookies[:user_id])
+  #   end
+  # end
+
 end
  
 # Homepage (Root path)
 get '/' do
   erb :'index'
 end
-###########################################################
-#As a user I can add a caption to a picture that already has captions
-get '/images/:id/show' do
 
+#As a user I can add a caption to a picture that already has captions
+get '/images/show' do
+  @image = Image.last
+  erb :'show'
 end
-# POST: /images/:id/show/save
-# Actions: Form text area with a submit action
-# Save caption
-###########################################################
 
 #A user can choose from a list of random pictures
 get '/generate' do
@@ -30,11 +33,26 @@ get '/generate' do
   erb :'generate' #Call Flickr API to return # images
 end 
 
+#Save selected image to database
 post '/generate/new' do
   @image = Image.new(url: params[:image])
   @image.save
-  erb :'caption'
+ redirect '/images/show'
 end
 
+#Link up new caption with image and store in captions table
+post '/images/caption/new' do
+  @caption = Caption.new(
+    text: params[:text],
+    image_id: params[:image_id],
+    )
+  @caption.save
+ redirect '/'
+end
 
-
+post '/captions/vote' do
+  caption = Caption.find(params[:id])
+  caption.total_upvotes += 1
+  caption.save
+  Vote.create(user_id: current_user.id, caption_id: params[:id])
+end
