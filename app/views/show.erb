@@ -22,3 +22,34 @@
         <button class = "btn1 btn1-primary btn1-lg outline">CAPTION</button>
     </form>
 <div>
+
+<!-- 
+list of captions that already exist -->
+<div class="container">
+  <% @image.captions.each do |caption| %>
+    <div class="caption">
+      <h3>
+        <a href="/caption/<%= caption.id %>">
+          <%= caption.text %>
+        </a> 
+        <small>
+          Added by: <%= caption.user.name %>
+        </small>
+      </h3>
+      <p>
+        On: <%= caption.created_at %>
+      </p>
+      <p>
+       <!--  Upvotes: <%= caption.total_votes %> -->
+        <!-- Need to hide button once user upvotes -->
+        <!-- <form action="/users/upvote" method="post">
+          <button type="submit" name="logout">Upvote!</button>
+          <input type="hidden" name="track_id" value="<%= track.id %>">
+        </form> -->
+      </p>
+</div>
+  <% end %>
+
+
+<!-- 
+# -->

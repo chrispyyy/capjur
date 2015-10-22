@@ -13,6 +13,7 @@
         </form>
     <% end %>
   </div>
+  </div> 
 
     <div class = "col-sm-4"><% @photos.each do |photo| %>
         <img src="<%= photo %>" alt="random photo" />
@@ -25,7 +26,7 @@
           <input name="image" value='<%= photo %>' type='hidden'/>
         <button type="submit" class = "btn1 btn1-primary btn1-lg outline">Caption It!</button></form>
           <% end %>
-  </div>
+
 </div>
 
 
