@@ -1,13 +1,36 @@
-<<<<<<< HEAD
 <body>
   <div class = "container">
-    <ul class = "row">
-      <li class = "col-sm-3">One</li>
-      <li class = "col-sm-3">One</li>
-      <li class = "col-sm-3">One</li>
-    </ul>
+    <div class = "row">
+      <div class = "col-sm-4"> <% @photos.each do |photo| %>
+        <img src="<%= photo %>" alt="random photo" />
+      <% end %>
+        <a class="btn btn-default"  >Caption It!</a>
+    </div>
+      <div class = "col-sm-4"><% @photos.each do |photo| %>
+        <img src="<%= photo %>" alt="random photo" />
+      <% end %></div>
+      <div class = "col-sm-4"><% @photos.each do |photo| %>
+        <img src="<%= photo %>" alt="random photo" />
+      <% end %></div>
+    </div>
   </div>
-</body>
-=======
 
->>>>>>> origin
+  <section>
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-sm-4"> <% @photos.each do |photo| %>
+          <img src="<%= photo %>" alt="random photo" />
+        <% end %>
+          <a class="btn btn-default"  >Caption It!</a>
+      </div>
+        <div class = "col-sm-4"><% @photos.each do |photo| %>
+          <img src="<%= photo %>" alt="random photo" />
+        <% end %></div>
+        <div class = "col-sm-4"><% @photos.each do |photo| %>
+          <img src="<%= photo %>" alt="random photo" />
+        <% end %></div>
+      </div>
+    </div>
+
+  </section>
+</body>

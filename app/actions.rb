@@ -9,9 +9,9 @@ def photos(n)
 end
 
 end
- 
+
 # Homepage (Root path)
 get '/' do
-  @photos = photos(3)
+  @photos = photos(1)
   erb :index
 end
