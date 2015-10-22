@@ -1,16 +1,14 @@
-<<<<<<< HEAD
- <form method="post" action="/show/caption/new">
-  <label>caption here: </label> <input type="text" name="caption" value="<%= @caption.text %>"> 
-  <button type="submit" class="button">Capjur it</button>
-  </form>
-=======
-<a href="/"><img src="<%= @image.url %>" alt="random photo" /></a>
 
-
-<form action="caption/new" method="post">
+<!-- <form action="/image/:id/show" method="post">
 <input name="image_id" value='<%= @image.id %>' type='hidden'/>
+</form> -->
+
+<p><img src="<%= @image.url %>" alt="random photo" /></p>
+
+<form method="post" action="/images/<%= @image.id %>/captions">
+  <label for="text">caption here: </label>
+  <textarea name="text"></textarea>
+  <button type="submit" class="button">Capjur it</button>
+</form>
 
 
-<textarea name="text"></textarea>
-<button>SUBMIT</button></form>
->>>>>>> master

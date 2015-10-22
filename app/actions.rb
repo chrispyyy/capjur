@@ -29,24 +29,24 @@ end
 # Homepage (Root path)
 get '/' do
   @photos = photos(1)
-  # @images_top = Image.all.order(:total_votes).reverse
+  erb :'index'
+end
+
+# @images_top = Image.all.order(:total_votes).reverse
   # @images_recent = Image.all.order(:updated_at).reverse
 
-  erb :index
-end
-<<<<<<< HEAD
-
 #posts a new caption to a new picture or any picture. This caption command should work anywhere.
-post 'show/caption/new' do
-  @caption = Caption.new(
-    text: params[:text]
-  )
-  if @caption.save
-    redirect '/'
-  else
-    erb :'/show'
-  end
-end
+# post '/show/caption/new' do
+#   @caption = Caption.new(
+#     text: params[:text]
+
+#   )
+#   if @caption.save
+#     redirect '/'
+#   else
+#     erb :'/show'
+#   end
+# end
 
 
 #get for history page
@@ -55,11 +55,7 @@ end
 
 
 
-#when image on the front page is clicked, it redirects to its already existing caption page
-get '/image/:id' do  #/id means u need to pass :id into it using params[:id]
-  @image = Image.find params[:id]
-  erb :'/show'
-end
+
 
 # POST /submit HTTP/1.1
 # CONTENT-LENGTH=54537
@@ -71,14 +67,8 @@ end
 
 ###########################################################
 #As a user I can add a caption to a picture that already has captions
-get '/images/:id/show' do
->>>>>>> 614c18f9a98d33a27b011b2c2c9a8c86a3478ce6
-
-#As a user I can add a caption to a picture that already has captions
-get '/images/show' do
-  @image = Image.last
-  erb :'show'
-end
+# get '/images/:id/show' do
+# >>>>>>> 614c18f9a98d33a27b011b2c2c9a8c86a3478ce6
 
 ####when exactly would these method activate???                            ??????????????
 #A user can choose from a list of random pictures
@@ -86,6 +76,7 @@ get '/generate' do
   @photos = photos(1)
   erb :'generate' #Call Flickr API to return # images
 end
+
 
 # #saves image to database?
 # post '/generate/new' do
@@ -95,22 +86,35 @@ end
 # end
 
 #Save selected image to database
-post '/generate/new' do
-  @image = Image.new(url: params[:image])
-  @image.save
- redirect '/images/show'
+post '/images' do
+  @image = Image.create(url: params[:image])
+ redirect "/images/#{@image.id}/show"
+end
+
+#when image on the front page is clicked, it redirects to its already existing caption page
+get '/images/:image_id/show' do  #/id means u need to pass :id into it using params[:id]
+  @image = Image.find params[:image_id]
+  # @caption = Caption.new
+  erb :'/show'
 end
 
 
+
+get '/images/:image_id' do
+  @image = Image.find(params[:image_id])
+  # render erb :'image'
+end
+
 #Link up new caption with image and store in captions table
-post '/images/caption/new' do
-  @caption = Caption.new(
+post '/images/:image_id/captions' do
+  @caption = Caption.create(
+    user_id: 1,
     text: params[:text],
     image_id: params[:image_id],
     )
-  @caption.save
- redirect '/'
+ redirect '/images/show'
 end
+
 
 post '/captions/vote' do
   caption = Caption.find(params[:id])

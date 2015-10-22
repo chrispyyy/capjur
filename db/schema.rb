@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151021192209) do
     t.integer  "image_id"
     t.integer  "user_id"
     t.string   "text"
-    t.integer  "total_votes" 
+    t.integer  "total_votes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
