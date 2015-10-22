@@ -1,0 +1,9 @@
+<a href="/"><img src="<%= @image.url %>" alt="random photo" /></a>
+
+
+<form action="caption/new" method="post">
+<input name="image_id" value='<%= @image.id %>' type='hidden'/>
+
+
+<textarea name="text"></textarea>
+<button>SUBMIT</button></form>
