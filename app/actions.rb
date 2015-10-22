@@ -41,7 +41,6 @@ end
 
 #Save selected image to database
 post '/generate/new' do
-  binding.pry
   @image = Image.new(url: params[:image])
   @image.save
  redirect '/images/show'
