@@ -32,13 +32,10 @@ end
 
 
 post '/generate/new' do
-  @image = Image.new(
-    url: params[:url],
-  )
+  @image = Image.new(url: params[:url])
   @image.save
-    erb :'caption'
+  erb :'caption'
 end
-    #Form submit button
 
 
 
