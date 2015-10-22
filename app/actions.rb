@@ -8,23 +8,24 @@ helpers do
       end
   end
 
-  # def current_user
-  #   if cookies[:user_id]
-  #     User.find(cookies[:user_id])
-  #   end
-  # end
+  def current_user
+    if cookies[:user_id]
+      User.find(cookies[:user_id])
+    end
+  end
 
 end
 
 # Homepage (Root path)
 get '/' do
-  @photos = photos(1)
-  erb :index
+  @photos = Image.all.order(:created_at).reverse
+  erb :'index'
 end
 
 ###########################################################
 #As a user I can add a caption to a picture that already has captions
 get '/images/:id/show' do
+
 end
 
 #As a user I can add a caption to a picture that already has captions
@@ -61,5 +62,5 @@ post '/captions/vote' do
   caption = Caption.find(params[:id])
   caption.total_upvotes += 1
   caption.save
-  Vote.create(user_id: current_user.id, caption_id: params[:id])
+  Vote.create(user_id: 1, caption_id: params[:id])
 end
