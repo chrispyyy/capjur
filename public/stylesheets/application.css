@@ -5,3 +5,8 @@ ul li {
 ul li img {
   cursor: pointer;
 }
+
+img{
+  width: 375px;
+  height: 510px
+}

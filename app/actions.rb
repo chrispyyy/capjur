@@ -15,11 +15,19 @@ helpers do
   # end
 
 end
- 
+
 # Homepage (Root path)
 get '/' do
-  erb :'index'
+  @photos = photos(1)
+  erb :index
 end
+<<<<<<< HEAD
+=======
+
+###########################################################
+#As a user I can add a caption to a picture that already has captions
+get '/images/:id/show' do
+>>>>>>> 614c18f9a98d33a27b011b2c2c9a8c86a3478ce6
 
 #As a user I can add a caption to a picture that already has captions
 get '/images/show' do
@@ -31,7 +39,7 @@ end
 get '/generate' do
   @photos = photos(1)
   erb :'generate' #Call Flickr API to return # images
-end 
+end
 
 #Save selected image to database
 post '/generate/new' do
@@ -39,6 +47,7 @@ post '/generate/new' do
   @image.save
  redirect '/images/show'
 end
+
 
 #Link up new caption with image and store in captions table
 post '/images/caption/new' do
@@ -56,3 +65,4 @@ post '/captions/vote' do
   caption.save
   Vote.create(user_id: current_user.id, caption_id: params[:id])
 end
+

@@ -1,10 +1,55 @@
 
 <body>
   <div class = "container">
-    <ul class = "row">
-      <li class = "col-sm-3">One</li>
-      <li class = "col-sm-3">One</li>
-      <li class = "col-sm-3">One</li>
-    </ul>
+    <div class = "row">
+      <div class = "col-sm-4"> <% @photos.each do |photo| %>
+        <a href = <"image/<% image.id %>/show">
+          <img src="<%= photo %>" alt="random photo" />
+        </a>
+      <% end %>
+    </div>
+      <div class="panel panel-default, col-sm-4">
+        <div class="panel-body">
+          op Caption Here
+        </div>
+      </div>
+
+      <div class = "col-sm-4"><% @photos.each do |photo| %>
+        <a href = <"image/<% image.id %>/show">
+          <img src="<%= photo %>" alt="random photo" />
+        </a>
+      <% end %></div>
+      <div class = "col-sm-4"><% @photos.each do |photo| %>
+        <a href = <"image/<% image.id %>/show">
+          <img src="<%= photo %>" alt="random photo" />
+        </a>
+      <% end %></div>
+    </div>
   </div>
+
+<hr>
+  <section>
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-sm-4"> <% @photos.each do |photo| %>
+          <a href = <"image/<% image.id %>/show">
+            <img src="<%= photo %>" alt="random photo" />
+          </a>
+        <% end %>
+      </div>
+        <div class = "col-sm-4"><% @photos.each do |photo| %>
+          <a href = <"image/<% image.id %>/show">
+            <img src="<%= photo %>" alt="random photo" />
+          </a>
+        <% end %></div>
+        <div class = "col-sm-4"><% @photos.each do |photo| %>
+          <a href = <"image/<% image.id %>/show">
+            <img src="<%= photo %>" alt="random photo" />
+          </a>
+        <% end %></div>
+      </div>
+    </div>
+
+  </section>
+
 </body>
