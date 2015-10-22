@@ -2,28 +2,29 @@
 <body>
   <div class = "container">
     <div class = "row">
-      <div class = "col-sm-4"> <% @photos.each do |photo| %>
-        <a href = <"image/<% image.id %>/show">
-          <img src="<%= photo %>" alt="random photo" />
-        </a>
-      <% end %>
+      <div class = "col-sm-4">
+ 
+          <img src="<%= @photos[0].url %>" alt="random photo" />
+          <p></p>
+        
+
     </div>
       <div class="panel panel-default, col-sm-4">
-        <div class="panel-body">
-          op Caption Here
-        </div>
+        
       </div>
 
-      <div class = "col-sm-4"><% @photos.each do |photo| %>
-        <a href = <"image/<% image.id %>/show">
-          <img src="<%= photo %>" alt="random photo" />
-        </a>
-      <% end %></div>
-      <div class = "col-sm-4"><% @photos.each do |photo| %>
-        <a href = <"image/<% image.id %>/show">
-          <img src="<%= photo %>" alt="random photo" />
-        </a>
-      <% end %></div>
+      <div class = "col-sm-4">
+       
+          <img src="<%= @photos[1].url %>" alt="random photo" />
+          <p></p>
+
+          
+      </div>
+      <div class = "col-sm-4">
+        
+          <img src="<%= @photos[2].url %>" alt="random photo" />
+       
+      </div>
     </div>
   </div>
 
@@ -31,22 +32,21 @@
   <section>
     <div class = "container">
       <div class = "row">
-        <div class = "col-sm-4"> <% @photos.each do |photo| %>
-          <a href = <"image/<% image.id %>/show">
-            <img src="<%= photo %>" alt="random photo" />
-          </a>
-        <% end %>
+        <div class = "col-sm-4"> 
+            <img src="" alt="random photo" />
+         
+      
       </div>
-        <div class = "col-sm-4"><% @photos.each do |photo| %>
-          <a href = <"image/<% image.id %>/show">
-            <img src="<%= photo %>" alt="random photo" />
-          </a>
-        <% end %></div>
-        <div class = "col-sm-4"><% @photos.each do |photo| %>
-          <a href = <"image/<% image.id %>/show">
-            <img src="<%= photo %>" alt="random photo" />
-          </a>
-        <% end %></div>
+        <div class = "col-sm-4">
+          
+            <img src="" alt="random photo" />
+          
+   </div>
+        <div class = "col-sm-4">
+          
+            <img src="" alt="random photo" />
+          
+        </div>
       </div>
     </div>
 
