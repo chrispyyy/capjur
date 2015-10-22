@@ -7,14 +7,17 @@ ul li img {
 }
 
 img{
-  max-width: 100%
+  max-width: 100%;
+  max-height: 500px;
 }
+
 
 IMG.displayed {
     display: block;
     margin-left: auto;
-    margin-right: auto }
-
+    margin-right: auto;
+    margin-bottom: 10px;
+}
 
 .img-clr{
   width: 850px;
@@ -27,7 +30,7 @@ IMG.displayed {
    font-weight: 700;
    letter-spacing: 1px;
    text-transform: uppercase;
-   margin-top: 10px;
+   margin-top: 5px;
 }
 
 .btn1:focus, .btn:active:focus, .btn.active:focus {
@@ -61,4 +64,9 @@ IMG.displayed {
 .btn-form{
   Margin: 0 auto;
   Width: 200px;
+}
+
+.cptn_cont{
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
