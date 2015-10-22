@@ -15,9 +15,7 @@ get '/' do
   @photos = photos(1)
   erb :index
 end
-=======
-  erb :'index'
-end
+
 ###########################################################
 #As a user I can add a caption to a picture that already has captions
 get '/images/:id/show' do
