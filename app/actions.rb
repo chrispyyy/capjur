@@ -34,27 +34,7 @@ get '/' do
 
   erb :index
 end
-
-
-# #will display the top captions based on total votes for the image
-# get '/top/show' do
-#   @title = 'Top Captions'
-#   # @images = Image.all.order(total_votes: :desc)
-#   @images_top = Image.all.order(:total_votes).reverse
-#   #in index call index[0], [1], [2] for top 3
-#   erb :'index'
-# end
-
-# #will display the most recent caption
-# get '/recent/show' do
-#   @title = 'Most Recent Captions'
-#   @images_recent = Image.all.order(:updated_at).reverse
-#   # @images = Image.all.order(updated_at: :desc)
-#   erb :'index'
-# end
-
-#<form method="post" action="/submit">
-# <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Capjur it!</button>
+<<<<<<< HEAD
 
 #posts a new caption to a new picture or any picture. This caption command should work anywhere.
 post 'show/caption/new' do
@@ -89,17 +69,16 @@ end
 
 # GET /submit/this@that.com
 
-# '/submit/:email'
-
 ###########################################################
 #As a user I can add a caption to a picture that already has captions
 get '/images/:id/show' do
+>>>>>>> 614c18f9a98d33a27b011b2c2c9a8c86a3478ce6
 
+#As a user I can add a caption to a picture that already has captions
+get '/images/show' do
+  @image = Image.last
+  erb :'show'
 end
-# POST: /images/:id/show/save
-# Actions: Form text area with a submit action
-# Save caption
-###########################################################
 
 ####when exactly would these method activate???                            ??????????????
 #A user can choose from a list of random pictures
@@ -108,10 +87,36 @@ get '/generate' do
   erb :'generate' #Call Flickr API to return # images
 end
 
-#saves image to database?
+# #saves image to database?
+# post '/generate/new' do
+#   @image = Image.new(url: params[:image])  #the image from the view (which calls the API method) returns an html 
+#   @image.save #which we put into :image which we pass into url
+#   erb :'show'
+# end
+
+#Save selected image to database
 post '/generate/new' do
-  @image = Image.new(url: params[:image])  #the image from the view (which calls the API method) returns an html 
-  @image.save #which we put into :image which we pass into url
-  erb :'show'
+  @image = Image.new(url: params[:image])
+  @image.save
+ redirect '/images/show'
 end
+
+
+#Link up new caption with image and store in captions table
+post '/images/caption/new' do
+  @caption = Caption.new(
+    text: params[:text],
+    image_id: params[:image_id],
+    )
+  @caption.save
+ redirect '/'
+end
+
+post '/captions/vote' do
+  caption = Caption.find(params[:id])
+  caption.total_upvotes += 1
+  caption.save
+  Vote.create(user_id: current_user.id, caption_id: params[:id])
+end
+
 

@@ -3,37 +3,58 @@
   <div class = "container">
     <div class = "row">
       <div class = "col-sm-4"> <% @photos.each do |photo| %>
-        <img src="<%= photo %>" alt="random photo" />
+        <a href = <"image/<% image.id %>/show">
+          <img src="<%= photo %>" alt="random photo" />
+        </a>
       <% end %>
-        <a class="btn btn-default"  >Caption It!</a>
     </div>
+      <div class="panel panel-default, col-sm-4">
+        <div class="panel-body">
+          Put Caption Here
+        </div>
+      </div>
+
       <div class = "col-sm-4"><% @photos.each do |photo| %>
-        <img src="<%= photo %>" alt="random photo" />
+        <a href = <"image/<% image.id %>/show">
+          <img src="<%= photo %>" alt="random photo" />
+        </a>
       <% end %></div>
       <div class = "col-sm-4"><% @photos.each do |photo| %>
-        <img src="<%= photo %>" alt="random photo" />
+        <a href = <"image/<% image.id %>/show">
+          <img src="<%= photo %>" alt="random photo" />
+        </a>
       <% end %></div>
     </div>
   </div>
 
+<hr>
 
   <section>
     <div class = "container">
       <div class = "row">
         <div class = "col-sm-4"> <% @photos.each do |photo| %>
-          <img src="<%= photo %>" alt="random photo" />
+          <a href = <"image/<% image.id %>/show">
+            <img src="<%= photo %>" alt="random photo" />
+          </a>
         <% end %>
-          <a class="btn btn-default"  >Caption It!</a>
       </div>
         <div class = "col-sm-4"><% @photos.each do |photo| %>
-          <img src="<%= photo %>" alt="random photo" />
+          <a href = <"image/<% image.id %>/show">
+            <img src="<%= photo %>" alt="random photo" />
+          </a>
         <% end %></div>
         <div class = "col-sm-4"><% @photos.each do |photo| %>
-          <img src="<%= photo %>" alt="random photo" />
+          <a href = <"image/<% image.id %>/show">
+            <img src="<%= photo %>" alt="random photo" />
+          </a>
         <% end %></div>
       </div>
     </div>
 
   </section>
+<<<<<<< HEAD
 (c) Capjur Copyrighted by Cap'n Jur
+=======
+
+>>>>>>> master
 </body>
