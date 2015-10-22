@@ -22,8 +22,6 @@ get '/' do
   erb :'index'
 end
 
-
-
 ###########################################################
 #As a user I can add a caption to a picture that already has captions
 get '/images/:id/show' do
@@ -44,6 +42,7 @@ end
 
 #Save selected image to database
 post '/generate/new' do
+  binding.pry
   @image = Image.new(url: params[:image])
   @image.save
  redirect '/images/show'
@@ -66,4 +65,3 @@ post '/captions/vote' do
   caption.save
   Vote.create(user_id: 1, caption_id: params[:id])
 end
-

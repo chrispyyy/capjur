@@ -10,3 +10,56 @@ img{
   width: 375px;
   height: 510px
 }
+
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+    
+.img-clr{
+  width: 850px;
+
+}
+
+.btn1 {
+  padding: 14px 24px;
+   border: 0 none;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   margin-top: 10px;
+}
+
+.btn1:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn1-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+.btn1.outline {
+    background: none;
+    padding: 12px 22px;
+    margin-top: 10px;
+}
+
+.btn1-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+.btn1-primary.outline:hover, .btn1-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+	color: #33a6cc;
+	border-color: #33a6cc;
+}
+.btn1-primary.outline:active, .btn1-primary.outline.active {
+	border-color: #007299;
+	color: #007299;
+	box-shadow: none;
+}
+
+.btn-form{
+  Margin: 0 auto;
+  Width: 200px;
+}
