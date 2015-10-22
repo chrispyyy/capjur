@@ -1,0 +1,12 @@
+ul li {
+  list-style:none;
+  margin-bottom:25px;
+}
+ul li img {
+  cursor: pointer;
+}
+
+img{
+  width: 375px;
+  height: 510px
+}

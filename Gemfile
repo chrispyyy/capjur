@@ -1,6 +1,6 @@
 # A sample Gemfile
 source "https://rubygems.org"
-
+gem 'flickraw'
 gem 'rake'
 gem 'activesupport'
 

@@ -11,15 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151022010324) do
+
 
   create_table "captions", force: :cascade do |t|
     t.integer  "image_id"
     t.integer  "user_id"
     t.string   "text"
     t.integer  "total_votes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "caption_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", force: :cascade do |t|
