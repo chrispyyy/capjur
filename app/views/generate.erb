@@ -3,26 +3,13 @@
 <body>
 
 <div class = "container">
-  <div class = "row">
-    <div class = "col-sm-4"> <% @photos.each do |photo| %>
-        <img src="<%= photo %>" alt="random photo" />
+    <div> <% @photos.each do |photo| %>
+        <img class= "displayed img-clr" src="<%= photo %>" alt="random photo" />
         <form class = "btn-form" action='/generate/new' method='post'>
         <button type="button" class = "btn1 btn1-primary btn1-lg outline">Caption It!</button></form>
     <% end %>
   </div>
-
-    <div class = "col-sm-4"><% @photos.each do |photo| %>
-        <img src="<%= photo %>" alt="random photo" />
-      </a>
-    <% end %>
-  </div>
-
-    <div class = "col-sm-4"><% @photos.each do |photo| %>
-        <img src="<%= photo %>" alt="random photo" />
-      </a>
-    <% end %>
-  </div>
-</div>
 </div>
 
-</body
+
+</body>
