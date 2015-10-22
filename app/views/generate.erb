@@ -6,8 +6,8 @@
   <div class = "row">
     <div class = "col-sm-4"> <% @photos.each do |photo| %>
         <img src="<%= photo %>" alt="random photo" />
-        <form action='/generate/new' method='post'>
-        <button class = "btn-default">Caption It!</button></form>
+        <form class = "btn-form" action='/generate/new' method='post'>
+        <button type="button" class = "btn1 btn1-primary btn1-lg outline">Caption It!</button></form>
     <% end %>
   </div>
 
