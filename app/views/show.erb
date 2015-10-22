@@ -3,12 +3,22 @@
 <input name="image_id" value='<%= @image.id %>' type='hidden'/>
 </form> -->
 
-<p><img src="<%= @image.url %>" alt="random photo" /></p>
+<!-- <p><img src="<%= @image.url %>" alt="random photo" /></p>
 
 <form method="post" action="/images/<%= @image.id %>/captions">
   <label for="text">caption here: </label>
   <textarea name="text"></textarea>
   <button type="submit" class="button">Capjur it</button>
 </form>
+ -->
+<div class = "container">
+  <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
+    <div class="form-group text_fit">
+      <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
+    </div>
 
-
+    <form class="btn-form" action="caption/new" method="post">
+        <input name="image_id" value='<%= @image.id %>' type='hidden'/>
+        <button class = "btn1 btn1-primary btn1-lg outline">CAPTION</button>
+    </form>
+<div>
