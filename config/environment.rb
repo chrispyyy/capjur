@@ -10,6 +10,18 @@ require 'sinatra/contrib/all' # Requires cookies, among other things
 
 require 'pry'
 
+require 'sinatra'
+require 'flickraw'
+
+####this is not the api_key 66869e72bc32152a2c19362e34d4051c
+####this is not the shared_secret  8c74659393822427
+####################################################
+# These values should be in environment variables
+FlickRaw.api_key = "put api key here"
+FlickRaw.shared_secret = "put secret here"
+####################################################
+
+
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 
