@@ -26,13 +26,12 @@ end
 
 #A user can choose from a list of random pictures
 get '/generate' do
-  @photos = photos(8)
+  @photos = photos(1)
   erb :'generate' #Call Flickr API to return # images
 end 
 
-
 post '/generate/new' do
-  @image = Image.new(url: params[:url])
+  @image = Image.new(url: params[:image])
   @image.save
   erb :'caption'
 end

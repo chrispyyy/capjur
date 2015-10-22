@@ -3,6 +3,7 @@
   <img src="<%= photo %>" alt="random photo" /> 
   
   <form action='/generate/new' method='post'>
+  <input name="image" value='<%= photo %>' type='hidden'/>
   <button>SELECT</button></form>
 
 <% end %>
