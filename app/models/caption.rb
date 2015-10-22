@@ -1,7 +1,9 @@
 class Caption < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :post
+  belongs_to :image
+
+  has_many :votes
 
   validates_presence_of :text
 
