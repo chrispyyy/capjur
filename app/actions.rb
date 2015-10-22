@@ -23,6 +23,12 @@ helpers do
       end
   end
 
+  def current_user
+    if cookies[:user_id]
+      User.find(cookies[:user_id])
+    end
+  end
+
 end
 
 
@@ -53,9 +59,15 @@ end
 
 #get for index page
 
+#   @photos = Image.all.order(:created_at).reverse
+#   erb :'index'
+# end
 
+###########################################################
+#As a user I can add a caption to a picture that already has captions
+get '/images/:id/show' do
 
-
+end
 
 # POST /submit HTTP/1.1
 # CONTENT-LENGTH=54537
@@ -120,7 +132,6 @@ post '/captions/vote' do
   caption = Caption.find(params[:id])
   caption.total_upvotes += 1
   caption.save
-  Vote.create(user_id: current_user.id, caption_id: params[:id])
+  Vote.create(user_id: 1, caption_id: params[:id])
 end
-
 
