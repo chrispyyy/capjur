@@ -1,17 +1,14 @@
-
-
-<body>
-
 <div class = "container">
     <div> <% @photos.each do |photo| %>
         <img class= "displayed img-clr" src="<%= photo %>" alt="random photo" />
 
-        <form class = "btn-form" action='/generate/new' method='post'>
-          <input name="image" value='<%= photo %>' type='hidden'/>
-        <button type="submit" class = "btn1 btn1-primary btn1-lg outline">Caption It!</button></form>
+        <form action='/generate/new' method='post'>
+      <div class="form-actions">    <input name="image" value='<%= photo %>' type='hidden'/>
+
+        <button type="submit" class = "btn1 btn1-primary btn1-lg outline">Caption It!</button>
+        <button type="button" class = "btn1 btn1-primary btn1-lg outline"><a href ="/generate">Give Me Another!</button></a>
+      </form>
+    </div>
           <% end %>
   </div>
 </div>
-
-
-</body>

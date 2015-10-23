@@ -17,7 +17,7 @@ img{
   .vertical-center {
     min-height: 100%;
     min-height: 100vh;
-}     
+}
 
 .hero-unit1 {
 padding: 60px;/* CHANGE PADDING HERE*/
@@ -32,29 +32,20 @@ background-color: #eeeeee; /* CHANGE BACKGROUND HERE*/
 border-radius: 6px;
 }
 
-.clip-me {
-
-  /* deprecated version */
-  position: absolute; /* absolute or fixed positioning required */
-  clip: rect(auto); /* or "auto" */
-  /* values descript a top/left point and bottom/right point */
-
-  /* current version (doesn't require positioning) */
-  clip-path: inset(100px 200px 300px 400px); /* or "none" */
-  /* values are from-top, from-right, from-bottom, from-left */
-
-}
-
 IMG.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    margin-top: 10px;
+}
+.h1-hero{
+  padding: 15px;
+  font-size: 60px;
 }
 
 .img-clr{
   width: 850px;
-
 }
 
 .btn1 {
@@ -94,13 +85,24 @@ IMG.displayed {
 	box-shadow: none;
 }
 
-.btn1-big{
-  width: 500px;
-}
+
 
 .btn-form{
   Margin: 0 auto;
   Width: 200px;
+}
+
+.form-actions {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+.badge-count {
+  background-color: #a30c49;
+}
+.badge-count:hover {
+  background-color: #da9db6;
 }
 
 .cptn_cont{
