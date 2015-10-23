@@ -3,7 +3,8 @@
 
   <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
 
-
+<% if @user.captions.find_by(image_id: @image.id) %>
+<% else %>
 <div class="form-group text_fit">
     <form action="/images/<%=@image.id%>/captions/new" method="post">
     <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
@@ -13,6 +14,7 @@
       </div>  
     </form>
 </div>
+<% end %>
 
 
 <p> TESTING TEXT YO</p>
@@ -25,6 +27,13 @@
 
             </p>
             <p> TESTING TEXT</p>
+    <% if @user.votes.find_by(caption_id: caption.id) %>        
+    <% else %>
+    <form method="post" action='/captions/vote/<%= caption.id %>'>
+    <button>UPVOTE!</button>
+    </form>
+    <% end %>
+    
 
 <% end %>
 
