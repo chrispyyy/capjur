@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022170135) do
+ActiveRecord::Schema.define(version: 20151022201200) do
 
   create_table "captions", force: :cascade do |t|
     t.integer  "image_id"
     t.integer  "user_id"
     t.string   "text"
-    t.integer  "total_votes"
+    t.integer  "total_votes", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

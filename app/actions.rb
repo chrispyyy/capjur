@@ -64,6 +64,7 @@ end
 
 #As a user I can add a caption to a picture that already has captions
 get '/images/show' do
+  @user = User.where(cookie_id: current_user).first
   require_user_cookie
   @image = Image.last
   erb :'show'
@@ -96,10 +97,12 @@ post '/images/:id/captions/new' do
   redirect '/images/show'
 end
 
-post '/captions/vote' do
+post '/captions/vote/:id' do
+  @user = User.where(cookie_id: current_user).first
   require_user_cookie
   caption = Caption.find(params[:id])
-  caption.total_upvotes += 1
+  caption.total_votes += 1
   caption.save
-  Vote.create(user_id: cookies[:user_id], caption_id: params[:id])
+  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
+  redirect '/images/show'
 end
