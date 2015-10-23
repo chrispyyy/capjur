@@ -33,9 +33,7 @@ end
 # Homepage (Root path)
 get '/' do
   require_user_cookie
-  @photos = Image.all.order(:created_at).reverse
-
-
+  @photos = Image.order(:total_caption_votes).reverse
   erb :'index'
 end
 
@@ -58,6 +56,7 @@ get '/images/show' do
   @user = User.where(cookie_id: current_user).first
   x = @image.captions
   @y = x.order(:total_votes).reverse
+
   erb :'show'
 end
 
@@ -82,19 +81,21 @@ end
 post '/images/:id/captions/new' do
   user = User.where(cookie_id: current_user).first
   image = Image.find(params[:id])
-  caption = image.captions.new(text: params[:text], user_id: user.id)
-  @vote = Vote.create(user_id: user.id, caption_id: params[:id])
+  caption = image.captions.new(text: params[:text], user_id: user.id
+    )
   caption.save!
   redirect '/images/show'
 end
 
 post '/captions/vote/:id' do
-  @user = User.where(cookie_id: current_user).first
   require_user_cookie
+  @user = User.where(cookie_id: current_user).first
+  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
   caption = Caption.find(params[:id])
   caption.total_votes += 1
   caption.save
-  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
-
+  image = Image.find(id: caption.image_id)
+  image.total_caption_votes += 1
+  image.save
   redirect '/images/show'
 end

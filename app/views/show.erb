@@ -21,8 +21,11 @@
   <h3><%= caption.text %> <small>--</small></h3>
     <p><%= caption.created_at %></p>
     <p><%= caption.total_votes %></p>
-    <% if @user.votes.find_by(caption_id: caption.id) %>        
+    
+
+    <% if @user.votes.find_by(caption_id: caption.id) || caption.user_id == @user.id %>        
     <% else %>
+    <input name="image_id" value='<%= @image.id %>' type='hidden'/>
     <form method="post" action='/captions/vote/<%= caption.id %>'>
     <button>UPVOTE!</button>
     </form>
