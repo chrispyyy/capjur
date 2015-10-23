@@ -11,13 +11,12 @@
     <div class ="btn-form">
         <input name="image_id" value='<%= @image.id %>' type='hidden'/>
         <button class = "btn1 btn1-primary btn1-lg outline ">CAPTION</button>
-      </div>  
+      </div>
     </form>
 </div>
 <% end %>
 
 
-<p> TESTING TEXT YO</p>
 
 <% @image.captions.each do |caption| %>
 
@@ -27,13 +26,13 @@
 
             </p>
             <p> TESTING TEXT</p>
-    <% if @user.votes.find_by(caption_id: caption.id) %>        
+    <% if @user.votes.find_by(caption_id: caption.id) %>
     <% else %>
     <form method="post" action='/captions/vote/<%= caption.id %>'>
     <button>UPVOTE!</button>
     </form>
     <% end %>
-    
+
 
 <% end %>
 
