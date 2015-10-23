@@ -1,30 +1,31 @@
 
 <div class = "container">
-  <div class="form-group text_fit">
+
   <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
 
-      
 
-    <form class="btn-form" action="/images/<%=@image.id%>/captions/new" method="post">
+<div class="form-group text_fit">
+    <form action="/images/<%=@image.id%>/captions/new" method="post">
     <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
-    
+    <div class ="btn-form">
         <input name="image_id" value='<%= @image.id %>' type='hidden'/>
-        <button class = "btn1 btn1-primary btn1-lg outline">CAPTION</button>
+        <button class = "btn1 btn1-primary btn1-lg outline ">CAPTION</button>
+      </div>  
     </form>
+</div>
 
 
 <p> TESTING TEXT YO</p>
 
 <% @image.captions.each do |caption| %>
-    
+
   <h3><%= caption.text %> <small>(by: user1)</small></h3>
   <p>
         <%= caption.created_at %>
 
             </p>
             <p> TESTING TEXT</p>
-                    
+
 <% end %>
 
 </div>
-

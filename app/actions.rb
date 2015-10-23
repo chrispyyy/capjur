@@ -94,6 +94,7 @@ post '/images/:id/captions/new' do
   image = Image.find(params[:id])
   caption = image.captions.new(text: params[:text])
   caption.save!
+  redirect '/images/show'
 end
 
 
