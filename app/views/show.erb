@@ -3,11 +3,28 @@
   <div class="form-group text_fit">
   <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
 
-      <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
-    </div>
+      
 
-    <form class="btn-form" action="caption/new" method="post">
+    <form class="btn-form" action="/images/<%=@image.id%>/captions/new" method="post">
+    <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
+    
         <input name="image_id" value='<%= @image.id %>' type='hidden'/>
         <button class = "btn1 btn1-primary btn1-lg outline">CAPTION</button>
     </form>
-<div>
+
+
+<p> TESTING TEXT YO</p>
+
+<% @image.captions.each do |caption| %>
+    
+  <h3><%= caption.text %> <small>(by: user1)</small></h3>
+  <p>
+        <%= caption.created_at %>
+
+            </p>
+            <p> TESTING TEXT</p>
+                    
+<% end %>
+
+</div>
+

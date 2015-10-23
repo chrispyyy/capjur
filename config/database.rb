@@ -3,7 +3,7 @@ configure do
   if Sinatra::Application.development?
     ActiveRecord::Base.logger = Logger.new(STDOUT)
   end
-
+  set :cookie_options, :expires => Time.at(1761166278)
   set :database, {
     adapter: "sqlite3",
     database: "db/db.sqlite3"
