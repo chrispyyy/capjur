@@ -1,24 +1,30 @@
 <div class="hero-unit1">
   <div class = "container text-center">
     <h1 class="h1-hero">We provide the image. You provide the wit.</h1>
-    <p class= "btn-form"><a href= '/generate' class="btn1 btn1-primary btn-lg outline ">CAPJUR IT!</a></p>
+    <p class= "btn-form"><a href= '/generate' class="btn1 btn1-primary capjur-home-btn">CAPJUR IT!</a></p>
   </div>
  </div>
 
   <div class = "container">
-    <div class = "row">
+    <div class = "row top-comment-text">
       <div class = "col-sm-4">
-          <img src="<%= @photos[0].url %>" alt="random photo" />
-          <div>Top Comment <span class="badge badge-count">1</span></div>
+        <a href='/images/:image_id/show'><img src="<%= @photos[0].url %>" alt="random photo" /></a>
+          <div class="top-comment-block">
+            <div> Top Comment <span class="badge badge-count">1</span></div>
+          </div>
     </div>
 
       <div class = "col-sm-4">
           <img src="<%= @photos[1].url %>" alt="random photo" />
-          <div>Top Comment <span class="badge badge-count">1</span> </div>
+          <div class="top-comment-block">
+            <div>Top Comment <span class="badge badge-count">1</span> </div>
+          </div>
       </div>
       <div class = "col-sm-4">
           <img src="<%= @photos[2].url %>" alt="random photo" />
-          <div>Top Comment <span class="badge badge-count">1</span></div>
+          <div class="top-comment-block">
+            <div>Top Comment <span class="badge badge-count">1</span> </div>
+          </div>
       </div>
     </div>
   </div>

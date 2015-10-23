@@ -64,8 +64,8 @@ end
 
 #As a user I can add a caption to a picture that already has captions
 get '/images/show' do
-  @user = User.where(cookie_id: current_user).first
   require_user_cookie
+  @user = User.where(cookie_id: current_user).first
   @image = Image.last
   erb :'show'
 end
