@@ -7,14 +7,50 @@ ul li img {
 }
 
 img{
-  max-width: 100%
+  width: 100%;
+  height: 500px;
+}
+.navbar1 {
+    margin-bottom:0;
+  }
+
+  .vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+}     
+
+.hero-unit1 {
+padding: 60px;/* CHANGE PADDING HERE*/
+margin-bottom: 30px;
+font-size: 18px;
+font-weight: 200;
+line-height: 30px;
+color: inherit;
+background-color: #eeeeee; /* CHANGE BACKGROUND HERE*/
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.clip-me {
+
+  /* deprecated version */
+  position: absolute; /* absolute or fixed positioning required */
+  clip: rect(auto); /* or "auto" */
+  /* values descript a top/left point and bottom/right point */
+
+  /* current version (doesn't require positioning) */
+  clip-path: inset(100px 200px 300px 400px); /* or "none" */
+  /* values are from-top, from-right, from-bottom, from-left */
+
 }
 
 IMG.displayed {
     display: block;
     margin-left: auto;
-    margin-right: auto }
-
+    margin-right: auto;
+    margin-bottom: 10px;
+}
 
 .img-clr{
   width: 850px;
@@ -27,7 +63,7 @@ IMG.displayed {
    font-weight: 700;
    letter-spacing: 1px;
    text-transform: uppercase;
-   margin-top: 10px;
+   margin-top: 5px;
 }
 
 .btn1:focus, .btn:active:focus, .btn.active:focus {
@@ -58,7 +94,16 @@ IMG.displayed {
 	box-shadow: none;
 }
 
+.btn1-big{
+  width: 500px;
+}
+
 .btn-form{
   Margin: 0 auto;
   Width: 200px;
+}
+
+.cptn_cont{
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
