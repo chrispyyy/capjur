@@ -1,15 +1,9 @@
 
-<% @captions_url.each do |url, caption| %>
-<img src="<%=url %>"/>
-<p><%=caption %></p>
-<div class = "container">
+<% @captions_url_votes.each do |caption| %>
 
-  <div><% @captions_url.each do |url, caption| %>
-<img class= "displayed img-clr" src="<%=url %>"/>
-<div class = "form-actions caption"><%=caption %></div>
+<img src="<%=caption.image.url %>"/>
+<p><%=caption.total_votes %></p>
+<p><%=caption.text %></p>
 
 <%end %>
 
-
-  </div>
-</div>
