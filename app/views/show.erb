@@ -16,6 +16,7 @@
 </div>
 <% end %>
 
+<% @y.each do |caption| %>
 
 
 <% @image.captions.each do |caption| %>
@@ -27,6 +28,11 @@
             </p>
             <p> TESTING TEXT</p>
     <% if @user.votes.find_by(caption_id: caption.id) %>
+  <h3><%= caption.text %> <small>--</small></h3>
+    <p><%= caption.created_at %></p>
+    <p><%= caption.total_votes %></p>
+    <% if @user.votes.find_by(caption_id: caption.id) %>
+
     <% else %>
     <form method="post" action='/captions/vote/<%= caption.id %>'>
     <button>UPVOTE!</button>

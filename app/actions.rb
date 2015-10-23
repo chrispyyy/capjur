@@ -1,5 +1,4 @@
 helpers do
-
  def photos(n)
    recent = flickr.photos.getRecent(per_page: n)
      recent.map do |photo|
@@ -20,7 +19,6 @@ helpers do
  def current_user
    cookies[:user_id]
  end
-
 end
 
 get '/history' do
@@ -34,8 +32,6 @@ end
 get '/' do
  require_user_cookie
  @photos = Image.all.order(:created_at).reverse
-
-
  erb :'index'
 end
 
