@@ -1,6 +1,4 @@
-
 <div class = "container">
-
   <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
 
 <% if @user.captions.find_by(image_id: @image.id) %>
@@ -11,7 +9,7 @@
     <div class ="btn-form">
         <input name="image_id" value='<%= @image.id %>' type='hidden'/>
         <button class = "btn1 btn1-primary btn1-lg outline capjur-home-btn">CAPTION</button>
-      </div>  
+      </div>
     </form>
 </div>
 <% end %>
@@ -19,25 +17,25 @@
 <% @y.each do |caption| %>
 
 
-<% @image.captions.each do |caption| %>
+    <% @image.captions.each do |caption| %>
 
-  <h3><%= caption.text %> <small>(by: user1)</small></h3>
-  <p>
-        <%= caption.created_at %>
+      <h3><%= caption.text %> <small>(by: user1)</small></h3>
+      <p>
+            <%= caption.created_at %>
 
-            </p>
-            <p> TESTING TEXT</p>
-    <% if @user.votes.find_by(caption_id: caption.id) %>
-  <h3><%= caption.text %> <small>--</small></h3>
-    <p><%= caption.created_at %></p>
-    <p><%= caption.total_votes %></p>
-    <% if @user.votes.find_by(caption_id: caption.id) %>
+                </p>
+            
+        <% if @user.votes.find_by(caption_id: caption.id) %>
+          <h3><%= caption.text %> <small>--</small></h3>
+          <p><%= caption.created_at %></p>
+          <p><%= caption.total_votes %></p>
 
-    <% else %>
-    <form method="post" action='/captions/vote/<%= caption.id %>'>
-    <button>UPVOTE!</button>
-    </form>
-    <% end %>
+        <% else %>
+          <form method="post" action='/captions/vote/<%= caption.id %>'>
+          <button>UPVOTE!</button>
+          </form>
+        <% end %>
+      <% end %>
 <% end %>
 
 </div>
