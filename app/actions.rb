@@ -24,8 +24,9 @@ end
 
 ###########################################################
 #As a user I can add a caption to a picture that already has captions
-get '/images/:id/show' do
-
+get '/images/:image_id/show' do
+   @image = Image.find(params[:image_id])
+  erb :'show'
 end
 
 #As a user I can add a caption to a picture that already has captions
@@ -49,12 +50,12 @@ end
 
 
 #Link up new caption with image and store in captions table
-post '/images/caption/new' do
-  @caption = Caption.new(
-    text: params[:text],
-    image_id: params[:image_id],
-    )
-  @caption.save
+post '/images/:id/captions/new' do
+  # binding.pry
+  image = Image.find(params[:id])
+  caption = image.captions.new(text: params[:text])
+  caption.save!
+
  redirect '/'
 end
 
