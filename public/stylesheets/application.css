@@ -41,7 +41,8 @@ IMG.displayed {
 }
 .h1-hero{
   padding: 15px;
-  font-size: 60px;
+  font-size: 45px;
+  font-family: 'Cuprum', sans-serif;
 }
 
 .img-clr{
@@ -108,4 +109,9 @@ IMG.displayed {
 .cptn_cont{
   margin-top: 6px;
   margin-bottom: 6px;
+}
+
+.caption{
+  font-family: 'Cuprum', sans-serif;
+  font-size: 25px;
 }
