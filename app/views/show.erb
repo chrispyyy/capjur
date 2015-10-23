@@ -16,17 +16,11 @@
 </div>
 <% end %>
 
+<% @y.each do |caption| %>
 
-<p> TESTING TEXT YO</p>
-
-<% @image.captions.each do |caption| %>
-
-  <h3><%= caption.text %> <small>(by: user1)</small></h3>
-  <p>
-        <%= caption.created_at %>
-
-            </p>
-            <p> TESTING TEXT</p>
+  <h3><%= caption.text %> <small>--</small></h3>
+    <p><%= caption.created_at %></p>
+    <p><%= caption.total_votes %></p>
     <% if @user.votes.find_by(caption_id: caption.id) %>        
     <% else %>
     <form method="post" action='/captions/vote/<%= caption.id %>'>
