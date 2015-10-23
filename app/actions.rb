@@ -37,7 +37,6 @@ helpers do
 end
 
 get '/history' do
-
   require_user_cookie
   @captions_url = user_captions_url
   erb :'history'
@@ -47,6 +46,8 @@ end
 get '/' do
   require_user_cookie
   @photos = Image.all.order(:created_at).reverse
+
+
   erb :'index'
 end
 
@@ -64,17 +65,18 @@ end
 
 #As a user I can add a caption to a picture that already has captions
 get '/images/show' do
-  @user = User.where(cookie_id: current_user).first
   require_user_cookie
   @image = Image.last
+  x = @image.captions
+  @y = x.order(:total_votes).reverse
   erb :'show'
 end
 
 #A user can choose from a list of random pictures
 get '/generate' do
-  require_user_cookie
+  require_user_cookie #Call Flickr API to return # images
   @photos = photos(1)
-  erb :'generate' #Call Flickr API to return # images
+  erb :'generate' 
 end
 
 #Save selected image to database
@@ -91,8 +93,7 @@ end
 post '/images/:id/captions/new' do
   user = User.where(cookie_id: current_user).first
   image = Image.find(params[:id])
-  caption = image.captions.new(text: params[:text],
-  user_id: user.id)
+  caption = image.captions.new(text: params[:text], user_id: user.id, total_votes: 1)
   caption.save!
   redirect '/images/show'
 end
