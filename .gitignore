@@ -1,0 +1,4 @@
+.env
+.bundle
+/db/*.db
+/db/*.sqlite3
