@@ -8,7 +8,6 @@ helpers do
       end
   end
 
-
   def require_user_cookie
     if !cookies[:user_id]
       cookies[:user_id] = SecureRandom.uuid
@@ -20,7 +19,6 @@ helpers do
 
   def user_captions_url
     require_user_cookie
-    User.where(cookie_id: current_user).first
     @user = User.where(cookie_id: current_user).first
     captions = Caption.where(user_id: @user.id)
     array = []
@@ -33,13 +31,13 @@ helpers do
   end
 
   def current_user
-
     cookies[:user_id]
   end
 
 end
 
 get '/history' do
+
   require_user_cookie
   @captions_url = user_captions_url
   erb :'history'
@@ -56,12 +54,12 @@ end
 #As a user I can add a caption to a picture that already has captions
 
 get '/images/:image_id/show' do
-   @image = Image.find(params[:image_id])
+  @image = Image.find(params[:image_id])
   erb :'show'
 end
 
 get '/images/:id/show' do
-require_user_cookie
+  require_user_cookie
 end
 
 #As a user I can add a caption to a picture that already has captions
@@ -90,26 +88,13 @@ end
 #Link up new caption with image and store in captions table
 
 post '/images/:id/captions/new' do
-  # binding.pry
+  user = User.where(cookie_id: current_user).first
   image = Image.find(params[:id])
-  caption = image.captions.new(text: params[:text])
+  caption = image.captions.new(text: params[:text],
+  user_id: user.id)
   caption.save!
   redirect '/images/show'
 end
-
-
-post '/images/caption/new' do
-  require_user_cookie
-  @caption = Caption.new(
-    user_id: cookies[:user_id],
-    text: params[:text],
-    image_id: params[:image_id],
-    )
-  @caption.save
- redirect '/'
-end
-
-
 
 post '/captions/vote' do
   require_user_cookie
