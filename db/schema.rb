@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021192209) do
+ActiveRecord::Schema.define(version: 20151022170135) do
 
   create_table "captions", force: :cascade do |t|
     t.integer  "image_id"
     t.integer  "user_id"
     t.string   "text"
-    t.integer  "total_votes" 
+    t.integer  "total_votes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151021192209) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cookie_id"
   end
 
   create_table "votes", force: :cascade do |t|
