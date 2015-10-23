@@ -17,19 +17,6 @@ helpers do
     end
   end
 
-  def user_captions_url
-    require_user_cookie
-    @user = User.where(cookie_id: current_user).first
-    captions = Caption.where(user_id: @user.id)
-    array = []
-    captions.each do |c|
-      array << Image.find(c.image_id).url
-      array << c.text
-    end
-    @captions_url = Hash[*array.flatten]
-    @captions_url
-  end
-
   def current_user
     cookies[:user_id]
   end
@@ -38,7 +25,8 @@ end
 
 get '/history' do
   require_user_cookie
-  @captions_url = user_captions_url
+  @user = User.where(cookie_id: current_user).first
+  @captions_url_votes = Caption.where(user_id: @user.id)
   erb :'history'
 end
 
@@ -67,6 +55,7 @@ end
 get '/images/show' do
   require_user_cookie
   @image = Image.last
+  @user = User.where(cookie_id: current_user).first
   x = @image.captions
   @y = x.order(:total_votes).reverse
   erb :'show'
@@ -93,7 +82,8 @@ end
 post '/images/:id/captions/new' do
   user = User.where(cookie_id: current_user).first
   image = Image.find(params[:id])
-  caption = image.captions.new(text: params[:text], user_id: user.id, total_votes: 1)
+  caption = image.captions.new(text: params[:text], user_id: user.id)
+  @vote = Vote.create(user_id: user.id, caption_id: params[:id])
   caption.save!
   redirect '/images/show'
 end
@@ -105,5 +95,6 @@ post '/captions/vote/:id' do
   caption.total_votes += 1
   caption.save
   @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
+
   redirect '/images/show'
 end
