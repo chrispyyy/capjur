@@ -39,8 +39,11 @@ end
 #As a user I can add a caption to a picture that already has captions
 
 get '/images/:image_id/show' do
- @image = Image.find(params[:image_id])
- erb :'show'
+@image = Image.find(params[:image_id])
+@user = User.where(cookie_id: current_user).first
+x = @image.captions
+@y = x.order(:total_votes).reverse
+erb :'show'
 end
 
 get '/images/:id/show' do
@@ -50,6 +53,7 @@ end
 #As a user I can add a caption to a picture that already has captions
 get '/images/show' do
   require_user_cookie
+  
   @image = Image.last
   @user = User.where(cookie_id: current_user).first
   x = @image.captions
