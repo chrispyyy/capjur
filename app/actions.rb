@@ -11,7 +11,7 @@ helpers do
    if !cookies[:user_id]
      cookies[:user_id] = SecureRandom.uuid
      @user = User.new(cookie_id: cookies[:user_id])
-     @user.save
+     
      # create user
    end
  end
@@ -22,7 +22,6 @@ helpers do
 end
 
 get '/history' do
- require_user_cookie
  @user = User.where(cookie_id: current_user).first
  @captions_url_votes = Caption.where(user_id: @user.id)
  erb :'history'
@@ -30,7 +29,6 @@ end
 
 # Homepage (Root path)
 get '/' do
-  require_user_cookie
   @photos = Image.order(:total_caption_votes).reverse
   erb :'index'
 end
@@ -46,16 +44,20 @@ x = @image.captions
 erb :'show'
 end
 
+
+get "/signup" do
+erb :"signup"
+end
+
 #A user can choose from a list of random pictures
-get '/generate' do
- require_user_cookie #Call Flickr API to return # images
+get '/generate' do #Call Flickr API to return # images
  @photos = photos(1)
  erb :'generate'
 end
 
 #Save selected image to database
 post '/generate/new' do
- require_user_cookie
+
  @image = Image.new(url: params[:image])
  @image.save
 redirect "/images/#{@image.id}/show"
@@ -72,12 +74,19 @@ post '/images/:id/captions/new' do
   redirect "/images/#{@image.id}/show"
 end
 
-post '/captions/vote/:id' do
-  require_user_cookie
-  @user = User.where(cookie_id: current_user).first
-  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
-  caption = Caption.find(params[:id])
-  caption.total_votes += 1
-  caption.save
-  redirect '/images/#{:image_id}/show'
-end
+# post '/captions/vote/:id' do
+#   @user = User.where(name: current_user)
+#   @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
+#   caption = Caption.find(params[:id])
+#   caption.total_votes += 1
+#   caption.save
+#   redirect '/images/#{:image_id}/show'
+# end
+
+post "/signup" do
+    cookies[:user_id] = SecureRandom.uuid
+    @user = User.new(name: params[:name],cookie_id: cookies[:user_id])
+    @user.save
+    binding.pry
+    redirect "/generate"
+  end
