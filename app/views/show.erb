@@ -15,17 +15,20 @@
     <% end %>
 
     <% @y.each do |caption| %>
-
-      <h3><%= caption.text %> <small>--</small></h3>
-      <p><%= caption.created_at %></p>
-      <p><%= caption.total_votes %></p>
+    <div class ="caption-box">
+      <div>
+        <span class="badge badge-count vote-badge"> <%= caption.total_votes %></span> "<%= caption.text %>" 
+      </div>
+      <p class ="user-text">  Created: <%= caption.created_at %> </p>
+    </div>
 
       <% if @user.votes.find_by(caption_id: caption.id) || caption.user_id == @user.id %>
       <% else %>
         <form method="post" action='/captions/vote/<%= caption.id %>'>
         <input name="image_id" value='<%= @image.id %>' type='hidden'/>
-        <button>UPVOTE!</button>
+        <button type="submit" class = "btn1 btn1-primary another">Vote!</button>
         </form>
       <% end %>
     <% end %>
+
 </div>

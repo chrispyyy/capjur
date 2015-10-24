@@ -163,7 +163,10 @@ IMG.displayed {
 .caption-box{
   margin: 10px;
   background-color: transparent;
-  height: 70px;;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%
 }
 
 .user_images{
@@ -172,12 +175,14 @@ IMG.displayed {
   padding: 10px;
 }
 
-
 .image-container{
-  /*display: inline-block;*/
   float:left;
   width: 500px;
   height: 500px;
   margin-top: 25px;
   margin-bottom: 10px;
+}
+
+.user-text{
+  float: right;
 }

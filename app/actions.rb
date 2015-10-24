@@ -53,7 +53,6 @@ end
 #As a user I can add a caption to a picture that already has captions
 get '/images/show' do
   require_user_cookie
-
   @image = Image.last
   @user = User.where(cookie_id: current_user).first
   x = @image.captions
