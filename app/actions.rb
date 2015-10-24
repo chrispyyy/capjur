@@ -74,19 +74,18 @@ post '/images/:id/captions/new' do
   redirect "/images/#{@image.id}/show"
 end
 
-# post '/captions/vote/:id' do
-#   @user = User.where(name: current_user)
-#   @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
-#   caption = Caption.find(params[:id])
-#   caption.total_votes += 1
-#   caption.save
-#   redirect '/images/#{:image_id}/show'
-# end
+post '/captions/vote/:id' do
+  @user = User.where(name: current_user)
+  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
+  caption = Caption.find(params[:id])
+  caption.total_votes += 1
+  caption.save
+  redirect "/images/#{@image.id}/show"
+end
 
 post "/signup" do
     cookies[:user_id] = SecureRandom.uuid
     @user = User.new(name: params[:name],cookie_id: cookies[:user_id])
     @user.save
-    binding.pry
     redirect "/generate"
   end
