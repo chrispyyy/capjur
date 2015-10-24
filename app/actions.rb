@@ -54,7 +54,6 @@ get '/images/show' do
  @user = User.where(cookie_id: current_user).first
  x = @image.captions
  @y = x.order(:total_votes).reverse
-
  erb :'show'
 end
 
@@ -88,7 +87,6 @@ post '/captions/vote/:id' do
  @user = User.where(cookie_id: current_user).first
  require_user_cookie
  caption = Caption.find(params[:id])
- binding.pry
  caption.total_votes += 1
  caption.save
  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])

@@ -1,5 +1,5 @@
 <div class = "container">
-  <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
+  <img class= "displayed" src="<%= @image.url %>" alt="random photo" />
 
 <% if @user.captions.find_by(image_id: @image.id) %>
 <% else %>
@@ -24,7 +24,7 @@
             <%= caption.created_at %>
 
                 </p>
-            
+
         <% if @user.votes.find_by(caption_id: caption.id) %>
           <h3><%= caption.text %> <small>--</small></h3>
           <p><%= caption.created_at %></p>

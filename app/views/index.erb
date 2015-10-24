@@ -10,22 +10,27 @@
       <div class = "col-sm-4">
         <a href='/images/:image_id/show'><img src="<%= @photos[0].url %>" alt="random photo" /></a>
           <div class="top-comment-block">
-            <div> Top Comment <span class="badge badge-count">1</span></div>
+            <div class="caption">
+              <span class="badge badge-count vote-badge">Votes:</span> this is a comment that is really long
+              so long
+            </div>
           </div>
     </div>
       <div class = "col-sm-4">
           <img src="<%= @photos[1].url %>" alt="random photo" />
           <div class="top-comment-block">
-            <div>Top Comment <span class="badge badge-count">1</span> </div>
+            <div class="caption">
+              <span class="badge badge-count vote-badge">Votes:</span> COMMENT
+            </div>
           </div>
       </div>
       <div class = "col-sm-4">
           <img src="<%= @photos[2].url %>" alt="random photo" />
           <div class="top-comment-block">
-            <div>Top Comment <span class="badge badge-count">1</span> </div>
+            <div class="caption">
+              <span class="badge badge-count vote-badge">Votes:</span> COMMENT
+            </div>
           </div>
       </div>
     </div>
   </div>
-
-
