@@ -11,7 +11,7 @@
         <a href='/images/<%= @photos[0].id %>/show'><img src="<%= @photos[0].url %>" alt="random photo" /></a>
           <input name="image" value='<%= @photos[0].captions %>' type='hidden'/>
         <div class="top-comment-block">
-          <span class="badge badge-count vote-badge"><%=@photos[0].total_caption_votes %></span>
+          <span class="badge badge-count vote-badge"><%= @photos[0].captions.order(:total_votes).reverse.first.total_votes %></span>
             "<%= @photos[0].captions.order(:total_votes).reverse.first.text %>"
           </div>
       </div>
@@ -20,7 +20,7 @@
           <a href='/images/<%= @photos[1].id %>/show'><img src="<%= @photos[1].url %>" alt="random photo" /></a>
           <input name="image" value='<%= @photos[1].captions %>' type='hidden'/>
           <div class="top-comment-block">
-            <span class="badge badge-count vote-badge"><%=@photos[1].total_caption_votes %></span>
+            <span class="badge badge-count vote-badge"><%= @photos[1].captions.order(:total_votes).reverse.first.total_votes %></span>
             "<%= @photos[1].captions.order(:total_votes).reverse.first.text %>"
           </div>
       </div>
@@ -29,7 +29,7 @@
           <a href='/images/<%= @photos[2].id %>/show'><img src="<%= @photos[2].url %>" alt="random photo" /></a>
           <input name="image" value='<%= @photos[2].captions %>' type='hidden'/>
           <div class="top-comment-block">
-            <span class="badge badge-count vote-badge"><%=@photos[2].total_caption_votes %></span>
+            <span class="badge badge-count vote-badge"><%= @photos[2].captions.order(:total_votes).reverse.first.total_votes %></span>
             "<%= @photos[2].captions.order(:total_votes).reverse.first.text %>"
           </div>
       </div>

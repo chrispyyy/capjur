@@ -75,12 +75,13 @@ post '/images/:id/captions/new' do
 end
 
 post '/captions/vote/:id' do
-  @user = User.where(name: current_user)
+  @user = User.where(cookie_id: current_user).first
   @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
   caption = Caption.find(params[:id])
+  @image = caption.image_id
   caption.total_votes += 1
   caption.save
-  redirect "/images/#{@image.id}/show"
+  redirect "/images/#{@image}/show"
 end
 
 post "/signup" do
