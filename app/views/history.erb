@@ -1,11 +1,14 @@
 <div class = "container">
-  <div class ="image-container">
-    <% @captions_url_votes.each do |caption| %>
-      <img id = "user_images" src="<%=caption.image.url %>"/>
-        <div class = "caption-box caption">
-        <span = class="badge badge-count vote-badge">Votes: <%=caption.total_votes%></span>
-        <%=caption.text %>
-        </div>
-        <%end %>
+  <% @captions_url_votes.each_slice(2) do |chunk| %>
+  <div>
+    <% chunk.each do |caption| %>
+    <div class="image-container">
+      <img id="user_images" src="<%=caption.image.url %>"/>
+      <div class="caption-box caption">
+        <span class="badge badge-count vote-badge">Votes: <%=caption.total_votes%></span><span>"<%=caption.text %>"</span>
+      </div>
     </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>
