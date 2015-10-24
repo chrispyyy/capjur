@@ -46,20 +46,18 @@ x = @image.captions
 erb :'show'
 end
 
-get '/images/:id/show' do
- require_user_cookie
-end
+
 
 #As a user I can add a caption to a picture that already has captions
-get '/images/show' do
-  require_user_cookie
+# get '/images/show' do
+#   require_user_cookie
 
-  @image = Image.last
-  @user = User.where(cookie_id: current_user).first
-  x = @image.captions
-  @y = x.order(:total_votes).reverse
-  erb :'show'
-end
+#   @image = Image.last
+#   @user = User.where(cookie_id: current_user).first
+#   x = @image.captions
+#   @y = x.order(:total_votes).reverse
+#   erb :'show'
+# end
 
 #A user can choose from a list of random pictures
 get '/generate' do
@@ -73,7 +71,7 @@ post '/generate/new' do
  require_user_cookie
  @image = Image.new(url: params[:image])
  @image.save
-redirect '/images/show'
+redirect "/images/#{@image.id}/show"
 end
 
 
@@ -81,10 +79,10 @@ end
 
 post '/images/:id/captions/new' do
   user = User.where(cookie_id: current_user).first
-  image = Image.find(params[:id])
-  caption = image.captions.new(text: params[:text], user_id: user.id)
+  @image = Image.find(params[:id])
+  caption = @image.captions.new(text: params[:text], user_id: user.id)
   caption.save!
-  redirect '/images/show'
+  redirect "/images/#{@image.id}/show"
 end
 
 post '/captions/vote/:id' do
@@ -94,5 +92,5 @@ post '/captions/vote/:id' do
   caption = Caption.find(params[:id])
   caption.total_votes += 1
   caption.save
-  redirect '/images/show'
+  redirect '/images/#{:image_id}/show'
 end
