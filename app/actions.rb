@@ -17,7 +17,7 @@ helpers do
  end
 
  def current_user
-   cookies[:user_id]
+   @user = User.find_by(cookie_id: current_user)
  end
 end
 
@@ -75,7 +75,7 @@ post '/images/:id/captions/new' do
 end
 
 post '/captions/vote/:id' do
-  @user = User.where(name: current_user)
+  @user = User.where(name: )
   @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
   caption = Caption.find(params[:id])
   caption.total_votes += 1
