@@ -1,32 +1,31 @@
 <div class = "container">
   <img class= "displayed img-clr" src="<%= @image.url %>" alt="random photo" />
 
-<% if @user.captions.find_by(image_id: @image.id) %>
-<% else %>
-<div class="form-group text_fit">
-    <form action="/images/<%=@image.id%>/captions/new" method="post">
-    <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
-    <div class ="btn-form">
+    <% if @user.captions.find_by(image_id: @image.id) %>
+    <% else %>
+    <div class="form-group text_fit">
+        <form action="/images/<%=@image.id%>/captions/new" method="post">
+        <textarea placeholder="Enter your caption" class="form-control" name="text"></textarea>
+        <div class ="btn-form">
+            <input name="image_id" value='<%= @image.id %>' type='hidden'/>
+            <button class = "btn1 btn1-primary btn1-lg outline capjur-home-btn">CAPTION</button>
+          </div>
+        </form>
+    </div>
+    <% end %>
+
+    <% @y.each do |caption| %>
+
+      <h3><%= caption.text %> <small>--</small></h3>
+      <p><%= caption.created_at %></p>
+      <p><%= caption.total_votes %></p>
+        
+      <% if @user.votes.find_by(caption_id: caption.id) || caption.user_id == @user.id %>        
+      <% else %>
+        <form method="post" action='/captions/vote/<%= caption.id %>'>
         <input name="image_id" value='<%= @image.id %>' type='hidden'/>
-        <button class = "btn1 btn1-primary btn1-lg outline capjur-home-btn">CAPTION</button>
-      </div>
-    </form>
-</div>
-<% end %>
-
-<% @y.each do |caption| %>
-
-  <h3><%= caption.text %> <small>--</small></h3>
-  <p><%= caption.created_at %></p>
-  <p><%= caption.total_votes %></p>
-    
-  <% if @user.votes.find_by(caption_id: caption.id) || caption.user_id == @user.id %>        
-  <% else %>
-    <form method="post" action='/captions/vote/<%= caption.id %>'>
-    <input name="image_id" value='<%= @image.id %>' type='hidden'/>
-    <button>UPVOTE!</button>
-    </form>
-  <% end %>
-<% end %>
-
+        <button>UPVOTE!</button>
+        </form>
+      <% end %>
+    <% end %>
 </div>
