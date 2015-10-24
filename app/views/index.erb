@@ -8,21 +8,30 @@
   <div class = "container">
     <div class = "row top-comment-text">
       <div class = "col-sm-4">
-        <a href='/images/:image_id/show'><img src="<%= @photos[0].url %>" alt="random photo" /></a>
+
+          <a href='/images/:image_id/show'><img src="<%= @photos[0].url %>" alt="random photo" /></a>
           <div class="top-comment-block">
-            <div> Top Comment <span class="badge badge-count">1</span></div>
-          </div>
-    </div>
-      <div class = "col-sm-4">
-          <img src="<%= @photos[1].url %>" alt="random photo" />
-          <div class="top-comment-block">
-            <div>Top Comment <span class="badge badge-count">1</span> </div>
+            <div><%= @photos[0].captions.order(:total_votes).reverse.first.text %>
+              <span class="badge badge-count"><%=@photos[0].total_caption_votes %></span> 
+            </div>
           </div>
       </div>
       <div class = "col-sm-4">
-          <img src="<%= @photos[2].url %>" alt="random photo" />
+
+          <a href='/images/:image_id/show'><img src="<%= @photos[1].url %>" alt="random photo" /></a>
           <div class="top-comment-block">
-            <div>Top Comment <span class="badge badge-count">1</span> </div>
+            <div><%= @photos[1].captions.order(:total_votes).reverse.first.text %>
+              <span class="badge badge-count"><%=@photos[1].total_caption_votes %></span> 
+            </div>
+          </div>
+      </div>
+      <div class = "col-sm-4">
+
+          <a href='/images/:image_id/show'><img src="<%= @photos[2].url %>" alt="random photo" /></a>
+          <div class="top-comment-block">
+            <div><%= @photos[2].captions.order(:total_votes).reverse.first.text %>
+              <span class="badge badge-count"><%=@photos[2].total_caption_votes %></span> 
+            </div>
           </div>
       </div>
     </div>

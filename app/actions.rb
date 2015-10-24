@@ -90,8 +90,5 @@ post '/captions/vote/:id' do
   caption = Caption.find(params[:id])
   caption.total_votes += 1
   caption.save
-  image = Image.find(id: caption.image_id)
-  image.total_caption_votes += 1
-  image.save
   redirect '/images/show'
 end
