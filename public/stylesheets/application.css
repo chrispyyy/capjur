@@ -10,23 +10,24 @@ img{
   width: 100%;
   height: 500px;
 }
+
 .navbar1 {
     margin-bottom:0;
   }
 
-  .vertical-center {
+.vertical-center {
     min-height: 100%;
     min-height: 100vh;
 }
 
-.hero-unit1 {
-padding: 60px;/* CHANGE PADDING HERE*/
+.hero-unit1{
+padding: 40px;/* CHANGE PADDING HERE*/
 margin-bottom: 30px;
 font-size: 18px;
 font-weight: 200;
 line-height: 30px;
 color: inherit;
-background-color: #eeeeee; /* CHANGE BACKGROUND HERE*/
+background-color: #F5F5F5; /* CHANGE BACKGROUND HERE*/
 -webkit-border-radius: 6px;
 -moz-border-radius: 6px;
 border-radius: 6px;
@@ -37,8 +38,9 @@ IMG.displayed {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 25px;
 }
+
 .h1-hero{
   padding: 15px;
   font-size: 45px;
@@ -66,6 +68,7 @@ IMG.displayed {
     background: #0099cc;
     color: #ffffff;
 }
+
 .btn1.outline {
     background: none;
     padding: 12px 22px;
@@ -75,35 +78,70 @@ IMG.displayed {
 .btn1-primary.outline {
     border: 2px solid #0099cc;
     color: #0099cc;
+    border-radius: 5px;
 }
+
 .btn1-primary.outline:hover, .btn1-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
 	color: #33a6cc;
 	border-color: #33a6cc;
+  border-radius: 5px;
 }
+
 .btn1-primary.outline:active, .btn1-primary.outline.active {
 	border-color: #007299;
 	color: #007299;
 	box-shadow: none;
 }
 
-
-
 .btn-form{
   Margin: 0 auto;
   Width: 200px;
+  margin-top: 15px;
+}
+
+.capjur-home-btn {
+   background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5CCD00),color-stop(100%,#4AA400));
+   color: #F5F5F5;
+   border-radius: 5px;
+}
+
+.another{
+  color:#F5F5F5;
+  margin-right: 20px;
+  border-radius: 5px;
 }
 
 .form-actions {
     margin: 0;
     background-color: transparent;
     text-align: center;
+    height: 70px;
 }
 
 .badge-count {
-  background-color: #a30c49;
+  background-color: #0099CC;
+  margin-left: 8px;
+  /*#a30c49;*/
 }
+
 .badge-count:hover {
   background-color: #da9db6;
+}
+
+.top-comment-text {
+  font-family: 'Cuprum', sans-serif;
+  font-size: 15px;
+}
+
+.top-comment-block {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  background-color: #f5f5f5;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #09b8c1;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .cptn_cont{
@@ -113,5 +151,34 @@ IMG.displayed {
 
 .caption{
   font-family: 'Cuprum', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
+}
+
+.caption-box{
+  margin: 10px;
+  background-color: transparent;
+  text-align: center;
+  height: 50px;
+  border: 2px solid #000000;
+}
+
+#user_images{
+  max-width: 100%;
+  height: 400px;
+  padding: 10px;
+}
+
+
+.image-container{
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.vote-badge{
+  padding: 5px 20px;
+  font-size: 15px;
+  background-color: #a30c49;
 }
