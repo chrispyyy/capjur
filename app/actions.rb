@@ -11,7 +11,6 @@ helpers do
    if !cookies[:user_id]
      cookies[:user_id] = SecureRandom.uuid
      @user = User.new(cookie_id: cookies[:user_id])
-     
      # create user
    end
  end
@@ -37,16 +36,16 @@ end
 #As a user I can add a caption to a picture that already has captions
 
 get '/images/:image_id/show' do
-@image = Image.find(params[:image_id])
-@user = User.where(cookie_id: current_user).first
-x = @image.captions
-@y = x.order(:total_votes).reverse
-erb :'show'
+  @image = Image.find(params[:image_id])
+  @user = User.where(cookie_id: current_user).first
+  x = @image.captions
+  @y = x.order(:total_votes).reverse
+  erb :'show'
 end
 
 
 get "/signup" do
-erb :"signup"
+  erb :"signup"
 end
 
 #A user can choose from a list of random pictures
@@ -57,10 +56,9 @@ end
 
 #Save selected image to database
 post '/generate/new' do
-
  @image = Image.new(url: params[:image])
  @image.save
-redirect "/images/#{@image.id}/show"
+ redirect "/images/#{@image.id}/show"
 end
 
 
@@ -75,18 +73,17 @@ post '/images/:id/captions/new' do
 end
 
 post '/captions/vote/:id' do
-  @user = User.where(name: )
-  @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
+  user = User.where(cookie_id: current_user).first
+  vote = Vote.create(user_id: user.id, caption_id: params[:id])
   caption = Caption.find(params[:id])
   caption.total_votes += 1
   caption.save
-  redirect "/images/#{@image.id}/show"
+  redirect "/images/#{caption.image_id}/show"
 end
 
 post "/signup" do
     cookies[:user_id] = SecureRandom.uuid
-    @user = User.new(name: params[:name],cookie_id: cookies[:user_id])
-    @user.save
-    binding.pry
+    user = User.new(name: params[:name],cookie_id: cookies[:user_id])
+    user.save
     redirect "/generate"
   end
