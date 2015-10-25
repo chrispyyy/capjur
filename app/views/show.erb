@@ -10,6 +10,10 @@
                 <button class = "btn1 btn1-primary btn1-lg outline capjur-home-btn">Capjur It!</button>
               </div>
           </form>
+
+<button id="mic" class = "btn1 btn1-primary btn1-lg outline capjur-home-btn">MIC</button>
+
+
         </div>
     <% end %>
 
@@ -28,4 +32,13 @@
     <% end %>
 </div>
 
-<i class="icon-mic"></i>
+<script>
+$("#mic").on('click',function() {
+
+var listener = new AudioListener();
+    listener.listen("en", function(text) {
+        document.querySelector("textarea").value = text;
+    });
+  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+});
+</script>
