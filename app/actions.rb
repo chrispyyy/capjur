@@ -11,7 +11,6 @@ helpers do
    if !cookies[:user_id]
      cookies[:user_id] = SecureRandom.uuid
      @user = User.new(cookie_id: cookies[:user_id])
-     # create user
    end
  end
 
@@ -27,7 +26,18 @@ get '/history' do
 end
 
 get '/all' do
- @images = Caption.all
+  images = Caption.all
+  list = []
+  images.each do |c|
+    list << c.image_id
+  end
+  yay = list.uniq
+  @photos = []
+  yay.each do |i|
+    @photos << Caption.find_by(image_id: i)
+  end
+  @photos
+
  erb :'all'
 end
 
@@ -35,7 +45,6 @@ end
 # Homepage (Root path)
 get '/' do
   @photos = Image.order(:total_caption_votes).reverse
-  @captions =
   erb :'index'
 end
 
@@ -81,8 +90,8 @@ post '/images/:id/captions/new' do
   user = User.where(cookie_id: current_user).first
   @image = Image.find(params[:id])
   caption = @image.captions.new(text: params[:text], user_id: user.id)
-  caption.save!
-  redirect "/images/#{@image.id}/show"
+    caption.save!
+    redirect "/images/#{@image.id}/show"
 end
 
 post '/captions/vote/:id' do

@@ -1,11 +1,11 @@
 <div class = "container">
-  <% @images.each_slice(2) do |chunk| %>
+  <% @photos.each_slice(2) do |chunk| %>
   <div>
     <% chunk.each do |caption| %>
     <div class="image-container">
-        <a href='images/<%= caption.image_id%>/show'><img class="user_images" src="<%=caption.image.url %>"/></a>
+        <a href='images/<%= caption.image_id%>/show'><img class="user_images" src="<%= caption.image.url %>"/></a>
       <div class="caption-box caption">
-        <span class="badge badge-count vote-badge">Votes: <%=caption.total_votes%></span><span> "<%=caption.text %>"</span> <span><h6>User: <%= caption.user.name %></h6> </span>
+        <span class="badge badge-count vote-badge">Votes: <%=caption.total_votes%></span><span> "<%=caption.text %>"</span>
       </div>
     </div>
     <% end %>

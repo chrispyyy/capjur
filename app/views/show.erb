@@ -10,7 +10,7 @@
               <button class = "btn1 btn1-primary btn1-lg another1">Capjur It!</button></form>
             </div>
               <div class="form-actions">
-              <button id="mic" class = "btn1 btn1-primary outline">Use mic!</button>
+              <button id="mic" class = "btn1 btn1-primary outline"><span class ="icon-mic"></span>Use mic</button>
               </div>
         </div>
     <% end %>
@@ -19,7 +19,7 @@
     <div class ="caption-box caption">
       <span class="badge badge-count vote-badge"> <%= caption.total_votes %></span> "<%= caption.text %>"
         <p class ="user-text">  Created: <%= caption.created_at.strftime("%d %b. %Y") %><br />User: <%= caption.user.name %> </p>
-          
+
           <% if @user.votes.find_by(caption_id: caption.id) || caption.user_id == @user.id %>
             <% else %>
               <form method="post" action='/captions/vote/<%= caption.id %>'>
