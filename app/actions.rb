@@ -16,7 +16,7 @@ helpers do
  end
 
  def current_user
-   @user = User.find_by(cookie_id: current_user)
+   cookies[:user_id]
  end
 end
 
