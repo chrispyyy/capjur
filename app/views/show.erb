@@ -20,7 +20,8 @@
     <% @y.each do |caption| %>
     <div class ="caption-box caption">
       <span class="badge badge-count vote-badge"> <%= caption.total_votes %></span> "<%= caption.text %>"
-        <p class ="user-text">  Created: <%= caption.created_at.strftime("%d %b. %Y") %> </p>
+        <p class ="user-text">  Created: <%= caption.created_at.strftime("%d %b. %Y") %><br />User: <%= caption.user.name %> </p>
+          
           <% if @user.votes.find_by(caption_id: caption.id) || caption.user_id == @user.id %>
             <% else %>
               <form method="post" action='/captions/vote/<%= caption.id %>'>
