@@ -1,0 +1,376 @@
+== Shotgun/Puma on http://127.0.0.1:3000/
+Puma 2.14.0 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://127.0.0.1:3000
+== Shotgun/Puma on http://0.0.0.0:9393/
+Puma 2.14.0 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://0.0.0.0:9393
+D, [2015-10-25T05:42:37.533298 #8440] DEBUG -- :   [1m[36mImage Load (2.2ms)[0m  [1mSELECT "images".* FROM "images"  ORDER BY "images"."total_caption_votes" ASC[0m
+D, [2015-10-25T05:42:37.610687 #8440] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 3]]
+D, [2015-10-25T05:42:37.623289 #8440] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 3]]
+D, [2015-10-25T05:42:37.624471 #8440] DEBUG -- :   [1m[35mCaption Load (0.1ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 1]]
+D, [2015-10-25T05:42:37.625027 #8440] DEBUG -- :   [1m[36mCaption Load (0.1ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 1]]
+D, [2015-10-25T05:42:37.625851 #8440] DEBUG -- :   [1m[35mCaption Load (0.1ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 4]]
+D, [2015-10-25T05:42:37.626427 #8440] DEBUG -- :   [1m[36mCaption Load (0.1ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 4]]
+66.183.198.160 - - [25/Oct/2015:05:42:37 -0400] "GET / HTTP/1.1" 200 3805 0.1916
+66.183.198.160 - - [25/Oct/2015:05:42:39 -0400] "GET /signup HTTP/1.1" 200 2295 0.0661
+D, [2015-10-25T05:42:46.160347 #8456] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:42:46.167232 #8456] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "cookie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "nameememe"], ["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"], ["created_at", "2015-10-25 09:42:46.163304"], ["updated_at", "2015-10-25 09:42:46.163304"]]
+D, [2015-10-25T05:42:46.170861 #8456] DEBUG -- :   [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:42:46 -0400] "POST /signup HTTP/1.1" 303 - 0.1440
+66.183.198.160 - - [25/Oct/2015:05:42:46 -0400] "GET /generate HTTP/1.1" 200 2730 1.2336
+66.183.198.160 - - [25/Oct/2015:05:42:48 -0400] "GET /generate HTTP/1.1" 200 2728 1.2564
+D, [2015-10-25T05:42:52.191220 #8467] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:42:52.198176 #8467] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm6.staticflickr.com/5695/22458079255_d77d35e359.jpg"], ["created_at", "2015-10-25 09:42:52.194213"], ["updated_at", "2015-10-25 09:42:52.194213"]]
+D, [2015-10-25T05:42:52.201898 #8467] DEBUG -- :   [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:42:52 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1378
+D, [2015-10-25T05:42:53.394854 #8470] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:42:53.401691 #8470] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm1.staticflickr.com/623/22271272119_72b38d908b.jpg"], ["created_at", "2015-10-25 09:42:53.397720"], ["updated_at", "2015-10-25 09:42:53.397720"]]
+D, [2015-10-25T05:42:53.404302 #8470] DEBUG -- :   [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:42:53 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1447
+D, [2015-10-25T05:42:54.099550 #8473] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-10-25T05:42:54.113393 #8473] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:42:54.322216 #8473] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 5]]
+D, [2015-10-25T05:42:54.335207 #8473] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 5]]
+66.183.198.160 - - [25/Oct/2015:05:42:54 -0400] "GET /images/5/show HTTP/1.1" 200 3181 0.3795
+D, [2015-10-25T05:42:55.061561 #8476] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:42:55.073872 #8476] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:42:55.383731 #8476] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+D, [2015-10-25T05:42:55.399553 #8476] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:42:55 -0400] "GET /images/6/show HTTP/1.1" 200 3185 0.4778
+D, [2015-10-25T05:43:11.738640 #8485] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:43:11.752807 #8485] DEBUG -- :   [1m[35mImage Load (0.2ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-10-25T05:43:11.835818 #8485] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:43:11.840643 #8485] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Operators of Christian died for a sport when."], ["user_id", 2], ["image_id", 5], ["created_at", "2015-10-25 09:43:11.839052"], ["updated_at", "2015-10-25 09:43:11.839052"]]
+D, [2015-10-25T05:43:11.846206 #8485] DEBUG -- :   [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:43:11 -0400] "POST /images/5/captions/new HTTP/1.1" 303 - 0.2584
+D, [2015-10-25T05:43:13.579539 #8488] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-10-25T05:43:13.591443 #8488] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:43:14.458040 #8488] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 5]]
+D, [2015-10-25T05:43:14.486902 #8488] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 5]]
+D, [2015-10-25T05:43:14.493411 #8488] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 2], ["caption_id", 5]]
+66.183.198.160 - - [25/Oct/2015:05:43:14 -0400] "GET /images/5/show HTTP/1.1" 200 2811 1.0604
+D, [2015-10-25T05:43:15.937506 #8492] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:43:15.950254 #8492] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:43:16.182373 #8492] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+D, [2015-10-25T05:43:16.201488 #8492] DEBUG -- :   [1m[35mCaption Load (0.4ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:43:16 -0400] "GET /images/6/show HTTP/1.1" 200 3167 0.3980
+D, [2015-10-25T05:43:24.635294 #8501] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:43:24.647448 #8501] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:43:25.015906 #8501] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+D, [2015-10-25T05:43:25.048258 #8501] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:43:25 -0400] "GET /images/6/show HTTP/1.1" 200 3166 0.5413
+D, [2015-10-25T05:43:26.327989 #8505] DEBUG -- :   [1m[36mCaption Load (2.2ms)[0m  [1mSELECT "captions".* FROM "captions"[0m
+D, [2015-10-25T05:43:26.377495 #8505] DEBUG -- :   [1m[35mImage Load (0.2ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 1]]
+D, [2015-10-25T05:43:26.385017 #8505] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:43:26.385612 #8505] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 3]]
+D, [2015-10-25T05:43:26.386211 #8505] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 4]]
+D, [2015-10-25T05:43:26.386773 #8505] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 5]]
+66.183.198.160 - - [25/Oct/2015:05:43:26 -0400] "GET /all HTTP/1.1" 200 3891 0.1905
+D, [2015-10-25T05:43:30.753477 #8514] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:43:30.765429 #8514] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:43:31.319571 #8514] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+D, [2015-10-25T05:43:31.332897 #8514] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:43:31 -0400] "GET /images/6/show HTTP/1.1" 200 3173 0.7221
+D, [2015-10-25T05:43:36.877453 #8522] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-10-25T05:43:36.889191 #8522] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:43:36.938362 #8525] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:43:36.950199 #8525] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:43:37.140288 #8525] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+D, [2015-10-25T05:43:37.152911 #8525] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:43:37 -0400] "GET /images/6/show HTTP/1.1" 200 3186 0.3577
+D, [2015-10-25T05:43:37.523544 #8522] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 5]]
+D, [2015-10-25T05:43:37.549758 #8522] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 5]]
+D, [2015-10-25T05:43:37.555819 #8522] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 2], ["caption_id", 5]]
+66.183.198.160 - - [25/Oct/2015:05:43:37 -0400] "GET /images/5/show HTTP/1.1" 200 2811 0.8053
+D, [2015-10-25T05:43:47.977790 #8534] DEBUG -- :   [1m[36mCaption Load (2.2ms)[0m  [1mSELECT "captions".* FROM "captions"[0m
+D, [2015-10-25T05:43:48.029668 #8534] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 1]]
+D, [2015-10-25T05:43:48.036809 #8534] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:43:48.037433 #8534] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 3]]
+D, [2015-10-25T05:43:48.037983 #8534] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 4]]
+D, [2015-10-25T05:43:48.038531 #8534] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 5]]
+66.183.198.160 - - [25/Oct/2015:05:43:48 -0400] "GET /all HTTP/1.1" 200 3891 0.1913
+D, [2015-10-25T05:43:49.967903 #8543] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:43:50.008083 #8543] DEBUG -- :   [1m[35mImage Load (0.4ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 6]]
+D, [2015-10-25T05:43:50.080325 #8543] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:43:50.085117 #8543] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Pessimist who reads it is the divines of the Roman?"], ["user_id", 3], ["image_id", 6], ["created_at", "2015-10-25 09:43:50.083536"], ["updated_at", "2015-10-25 09:43:50.083536"]]
+D, [2015-10-25T05:43:50.087688 #8543] DEBUG -- :   [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:43:50 -0400] "POST /images/6/captions/new HTTP/1.1" 303 - 0.2806
+D, [2015-10-25T05:43:51.972744 #8546] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:43:51.985699 #8546] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:43:52.660079 #8546] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+D, [2015-10-25T05:43:52.704450 #8546] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 6]]
+D, [2015-10-25T05:43:52.710456 #8546] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 3], ["caption_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:43:52 -0400] "GET /images/6/show HTTP/1.1" 200 2816 0.8861
+D, [2015-10-25T05:43:57.472642 #8550] DEBUG -- :   [1m[36mImage Load (2.4ms)[0m  [1mSELECT "images".* FROM "images"  ORDER BY "images"."total_caption_votes" ASC[0m
+D, [2015-10-25T05:43:57.560628 #8550] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 3]]
+D, [2015-10-25T05:43:57.605938 #8550] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 3]]
+D, [2015-10-25T05:43:57.607572 #8550] DEBUG -- :   [1m[35mCaption Load (0.1ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 1]]
+D, [2015-10-25T05:43:57.608436 #8550] DEBUG -- :   [1m[36mCaption Load (0.1ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 1]]
+D, [2015-10-25T05:43:57.609552 #8550] DEBUG -- :   [1m[35mCaption Load (0.1ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 6]]
+D, [2015-10-25T05:43:57.610243 #8550] DEBUG -- :   [1m[36mCaption Load (0.1ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 6]]
+66.183.198.160 - - [25/Oct/2015:05:43:57 -0400] "GET / HTTP/1.1" 200 3854 0.2462
+66.183.198.160 - - [25/Oct/2015:05:44:26 -0400] "GET /generate HTTP/1.1" 200 2730 1.2257
+== Shotgun/Puma on http://0.0.0.0:9393/
+Puma 2.14.0 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://0.0.0.0:9393
+66.183.198.160 - - [25/Oct/2015:05:46:05 -0400] "GET /generate HTTP/1.1" 200 2730 1.3840
+66.183.198.160 - - [25/Oct/2015:05:46:12 -0400] "GET /generate HTTP/1.1" 200 2728 1.4405
+66.183.198.160 - - [25/Oct/2015:05:46:17 -0400] "GET /generate HTTP/1.1" 200 2728 1.2893
+66.183.198.160 - - [25/Oct/2015:05:46:22 -0400] "GET /generate HTTP/1.1" 200 2728 1.3848
+66.183.198.160 - - [25/Oct/2015:05:46:29 -0400] "GET /generate HTTP/1.1" 200 2730 1.2586
+D, [2015-10-25T05:46:33.146744 #8660] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:46:33.153832 #8660] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm6.staticflickr.com/5802/22432151416_5b6dfc5e2f.jpg"], ["created_at", "2015-10-25 09:46:33.149732"], ["updated_at", "2015-10-25 09:46:33.149732"]]
+D, [2015-10-25T05:46:33.156453 #8660] DEBUG -- :   [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:46:33 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1364
+D, [2015-10-25T05:46:34.763635 #8663] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:46:34.775356 #8663] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:46:35.267580 #8663] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:46:35.280287 #8663] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:46:35 -0400] "GET /images/7/show HTTP/1.1" 200 3163 0.6455
+D, [2015-10-25T05:46:50.399040 #8667] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:46:50.411470 #8667] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:46:50.588956 #8667] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:46:50.601641 #8667] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:46:50 -0400] "GET /images/7/show HTTP/1.1" 200 3163 0.3454
+D, [2015-10-25T05:46:55.755530 #8675] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:46:55.768943 #8675] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:46:56.522896 #8675] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:46:56.535483 #8675] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:46:56 -0400] "GET /images/7/show HTTP/1.1" 200 3157 0.9258
+66.183.198.160 - - [25/Oct/2015:05:46:57 -0400] "GET /generate HTTP/1.1" 200 2730 1.3182
+D, [2015-10-25T05:47:01.666012 #8686] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:47:01.678046 #8686] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:47:02.656203 #8686] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:47:02.669119 #8686] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:47:02 -0400] "GET /images/7/show HTTP/1.1" 200 3160 1.1315
+D, [2015-10-25T05:47:07.278810 #8694] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:47:07.291487 #8694] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:47:08.276849 #8694] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:47:08.290184 #8694] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:47:08 -0400] "GET /images/7/show HTTP/1.1" 200 3160 1.1502
+D, [2015-10-25T05:47:11.530634 #8702] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:47:11.542942 #8702] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:47:11.731637 #8702] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:47:11.750837 #8702] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:47:11 -0400] "GET /images/7/show HTTP/1.1" 200 3166 0.3581
+66.183.198.160 - - [25/Oct/2015:05:47:12 -0400] "GET /generate HTTP/1.1" 200 2728 1.2991
+D, [2015-10-25T05:47:15.999402 #8712] DEBUG -- :   [1m[36mImage Load (0.5ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:47:16.010827 #8712] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:47:16.780065 #8712] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:47:16.794201 #8712] DEBUG -- :   [1m[35mCaption Load (0.4ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:47:16 -0400] "GET /images/7/show HTTP/1.1" 200 3167 0.9415
+66.183.198.160 - - [25/Oct/2015:05:47:20 -0400] "GET /generate HTTP/1.1" 200 2728 1.3014
+D, [2015-10-25T05:47:49.049944 #8723] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:47:49.056907 #8723] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm1.staticflickr.com/703/22270478958_03ef2644da.jpg"], ["created_at", "2015-10-25 09:47:49.052892"], ["updated_at", "2015-10-25 09:47:49.052892"]]
+D, [2015-10-25T05:47:49.060276 #8723] DEBUG -- :   [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:47:49 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1553
+D, [2015-10-25T05:47:50.798770 #8726] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 8]]
+D, [2015-10-25T05:47:50.810561 #8726] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:47:51.168491 #8726] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 8]]
+D, [2015-10-25T05:47:51.180212 #8726] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 8]]
+66.183.198.160 - - [25/Oct/2015:05:47:51 -0400] "GET /images/8/show HTTP/1.1" 200 3155 0.5120
+D, [2015-10-25T05:48:02.693080 #8730] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:48:02.706701 #8730] DEBUG -- :   [1m[35mImage Load (0.2ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 8]]
+D, [2015-10-25T05:48:02.777143 #8730] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:48:02.781745 #8730] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Say isn't big phone."], ["user_id", 2], ["image_id", 8], ["created_at", "2015-10-25 09:48:02.780385"], ["updated_at", "2015-10-25 09:48:02.780385"]]
+D, [2015-10-25T05:48:02.784901 #8730] DEBUG -- :   [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:48:02 -0400] "POST /images/8/captions/new HTTP/1.1" 303 - 0.2249
+D, [2015-10-25T05:48:04.436065 #8733] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 8]]
+D, [2015-10-25T05:48:04.449012 #8733] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:48:06.078195 #8733] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 8]]
+D, [2015-10-25T05:48:06.123900 #8733] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 8]]
+D, [2015-10-25T05:48:06.130293 #8733] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 2], ["caption_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:48:06 -0400] "GET /images/8/show HTTP/1.1" 200 2785 1.8309
+D, [2015-10-25T05:48:24.280049 #8737] DEBUG -- :   [1m[36mImage Load (2.1ms)[0m  [1mSELECT "images".* FROM "images"  ORDER BY "images"."total_caption_votes" ASC[0m
+D, [2015-10-25T05:48:24.360421 #8737] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 3]]
+D, [2015-10-25T05:48:24.374033 #8737] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 3]]
+D, [2015-10-25T05:48:24.375228 #8737] DEBUG -- :   [1m[35mCaption Load (0.1ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 1]]
+D, [2015-10-25T05:48:24.376011 #8737] DEBUG -- :   [1m[36mCaption Load (0.1ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 1]]
+D, [2015-10-25T05:48:24.376962 #8737] DEBUG -- :   [1m[35mCaption Load (0.1ms)[0m  SELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC  [["image_id", 8]]
+D, [2015-10-25T05:48:24.377537 #8737] DEBUG -- :   [1m[36mCaption Load (0.1ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 8]]
+66.183.198.160 - - [25/Oct/2015:05:48:24 -0400] "GET / HTTP/1.1" 200 3823 0.2038
+66.183.198.160 - - [25/Oct/2015:05:48:29 -0400] "GET /generate HTTP/1.1" 200 2730 1.3311
+D, [2015-10-25T05:48:30.276236 #8745] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:48:30.287460 #8745] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:48:32.001161 #8745] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:48:32.039096 #8745] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:48:32 -0400] "GET /images/7/show HTTP/1.1" 200 3171 1.9065
+D, [2015-10-25T05:48:43.204098 #8754] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:48:43.211283 #8754] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm6.staticflickr.com/5776/22469135751_769dcd9059.jpg"], ["created_at", "2015-10-25 09:48:43.207135"], ["updated_at", "2015-10-25 09:48:43.207135"]]
+D, [2015-10-25T05:48:43.214469 #8754] DEBUG -- :   [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:48:43 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1472
+D, [2015-10-25T05:48:44.747993 #8758] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:48:44.759915 #8758] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:48:44.927934 #8758] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:48:44.940135 #8758] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:48:44 -0400] "GET /images/7/show HTTP/1.1" 200 3155 0.3207
+D, [2015-10-25T05:48:44.967340 #8761] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 9]]
+D, [2015-10-25T05:48:44.980533 #8761] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:48:45.973989 #8761] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 9]]
+D, [2015-10-25T05:48:45.987888 #8761] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 9]]
+66.183.198.160 - - [25/Oct/2015:05:48:45 -0400] "GET /images/9/show HTTP/1.1" 200 3158 1.1561
+D, [2015-10-25T05:48:52.955432 #8770] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 9]]
+D, [2015-10-25T05:48:52.967389 #8770] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:48:53.581569 #8770] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 9]]
+D, [2015-10-25T05:48:53.593724 #8770] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 9]]
+66.183.198.160 - - [25/Oct/2015:05:48:53 -0400] "GET /images/9/show HTTP/1.1" 200 3159 0.7645
+D, [2015-10-25T05:49:00.379079 #8779] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:49:00.390857 #8779] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:00.794205 #8779] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:49:00.808238 #8779] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:49:00 -0400] "GET /images/7/show HTTP/1.1" 200 3158 0.5743
+D, [2015-10-25T05:49:03.341847 #8787] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:49:03.372837 #8787] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 9]]
+D, [2015-10-25T05:49:03.428463 #8787] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:49:03.433051 #8787] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Government is not soft."], ["user_id", 2], ["image_id", 9], ["created_at", "2015-10-25 09:49:03.431588"], ["updated_at", "2015-10-25 09:49:03.431588"]]
+D, [2015-10-25T05:49:03.435938 #8787] DEBUG -- :   [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:49:03 -0400] "POST /images/9/captions/new HTTP/1.1" 303 - 0.2293
+D, [2015-10-25T05:49:05.142062 #8790] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 9]]
+D, [2015-10-25T05:49:05.153673 #8790] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "cec995dc-24bb-4a54-9b68-dbfed395623e"]]
+D, [2015-10-25T05:49:06.161732 #8790] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 9]]
+D, [2015-10-25T05:49:06.184621 #8790] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 2], ["image_id", 9]]
+D, [2015-10-25T05:49:06.214291 #8790] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 2], ["caption_id", 8]]
+66.183.198.160 - - [25/Oct/2015:05:49:06 -0400] "GET /images/9/show HTTP/1.1" 200 2789 1.2092
+D, [2015-10-25T05:49:14.813469 #8794] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:14.848399 #8794] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 7]]
+D, [2015-10-25T05:49:14.908456 #8794] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:49:14.912843 #8794] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Drink himself to live."], ["user_id", 3], ["image_id", 7], ["created_at", "2015-10-25 09:49:14.911400"], ["updated_at", "2015-10-25 09:49:14.911400"]]
+D, [2015-10-25T05:49:14.915236 #8794] DEBUG -- :   [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:49:14 -0400] "POST /images/7/captions/new HTTP/1.1" 303 - 0.2482
+D, [2015-10-25T05:49:16.987875 #8798] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 7]]
+D, [2015-10-25T05:49:16.999176 #8798] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:17.749161 #8798] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 7]]
+D, [2015-10-25T05:49:17.795351 #8798] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 7]]
+D, [2015-10-25T05:49:17.802283 #8798] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 3], ["caption_id", 9]]
+66.183.198.160 - - [25/Oct/2015:05:49:17 -0400] "GET /images/7/show HTTP/1.1" 200 2788 0.9521
+D, [2015-10-25T05:49:21.914983 #8802] DEBUG -- :   [1m[36mCaption Load (2.0ms)[0m  [1mSELECT "captions".* FROM "captions"[0m
+D, [2015-10-25T05:49:21.966998 #8802] DEBUG -- :   [1m[35mImage Load (0.2ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 1]]
+D, [2015-10-25T05:49:21.973093 #8802] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:49:21.973656 #8802] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 3]]
+D, [2015-10-25T05:49:21.974170 #8802] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 4]]
+D, [2015-10-25T05:49:21.974668 #8802] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-10-25T05:49:21.975159 #8802] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 6]]
+D, [2015-10-25T05:49:21.975651 #8802] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 8]]
+D, [2015-10-25T05:49:21.976183 #8802] DEBUG -- :   [1m[36mImage Load (0.1ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 9]]
+D, [2015-10-25T05:49:21.976671 #8802] DEBUG -- :   [1m[35mImage Load (0.1ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 7]]
+66.183.198.160 - - [25/Oct/2015:05:49:21 -0400] "GET /all HTTP/1.1" 200 5327 0.2002
+D, [2015-10-25T05:49:31.697141 #8806] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:49:31.709239 #8806] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:32.219483 #8806] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 2]]
+D, [2015-10-25T05:49:32.243334 #8806] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 2]]
+D, [2015-10-25T05:49:32.249354 #8806] DEBUG -- :   [1m[36mVote Load (0.3ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 3], ["caption_id", 2]]
+66.183.198.160 - - [25/Oct/2015:05:49:32 -0400] "GET /images/2/show HTTP/1.1" 200 3612 0.6833
+D, [2015-10-25T05:49:35.931807 #8810] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:35.968063 #8810] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-10-25T05:49:35.972450 #8810] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "votes" ("user_id", "caption_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["caption_id", 2], ["created_at", "2015-10-25 09:49:35.971008"], ["updated_at", "2015-10-25 09:49:35.971008"]]
+D, [2015-10-25T05:49:35.975020 #8810] DEBUG -- :   [1m[35m (2.2ms)[0m  commit transaction
+D, [2015-10-25T05:49:35.982812 #8810] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT  "captions".* FROM "captions" WHERE "captions"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:49:35.994006 #8810] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT "images".* FROM "images"
+D, [2015-10-25T05:49:36.001640 #8810] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:49:36.004538 #8810] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  UPDATE "images" SET "total_caption_votes" = ?, "updated_at" = ? WHERE "images"."id" = ?  [["total_caption_votes", 1], ["updated_at", "2015-10-25 09:49:36.002242"], ["id", 2]]
+D, [2015-10-25T05:49:36.010157 #8810] DEBUG -- :   [1m[36m (5.1ms)[0m  [1mcommit transaction[0m
+D, [2015-10-25T05:49:36.010711 #8810] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-10-25T05:49:36.012631 #8810] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "captions" SET "total_votes" = ?, "updated_at" = ? WHERE "captions"."id" = ?[0m  [["total_votes", 1], ["updated_at", "2015-10-25 09:49:36.011272"], ["id", 2]]
+D, [2015-10-25T05:49:36.014778 #8810] DEBUG -- :   [1m[35m (1.8ms)[0m  commit transaction
+66.183.198.160 - - [25/Oct/2015:05:49:36 -0400] "POST /captions/vote/2 HTTP/1.1" 303 - 0.2101
+D, [2015-10-25T05:49:37.747246 #8813] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:49:37.758755 #8813] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:37.930157 #8813] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 2]]
+D, [2015-10-25T05:49:37.974470 #8813] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 2]]
+D, [2015-10-25T05:49:37.979449 #8813] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 3], ["caption_id", 2]]
+66.183.198.160 - - [25/Oct/2015:05:49:37 -0400] "GET /images/2/show HTTP/1.1" 200 3365 0.3753
+D, [2015-10-25T05:49:45.331881 #8817] DEBUG -- :   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:45.362086 #8817] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 2]]
+D, [2015-10-25T05:49:45.420945 #8817] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:49:45.426730 #8817] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Shut up my life."], ["user_id", 3], ["image_id", 2], ["created_at", "2015-10-25 09:49:45.424944"], ["updated_at", "2015-10-25 09:49:45.424944"]]
+D, [2015-10-25T05:49:45.429995 #8817] DEBUG -- :   [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:49:45 -0400] "POST /images/2/captions/new HTTP/1.1" 303 - 0.2298
+D, [2015-10-25T05:49:47.268299 #8820] DEBUG -- :   [1m[36mImage Load (0.4ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-10-25T05:49:47.280580 #8820] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "f202bf76-5916-4bed-a238-eda2a230cc97"]]
+D, [2015-10-25T05:49:48.221393 #8820] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 2]]
+D, [2015-10-25T05:49:48.270907 #8820] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 3], ["image_id", 2]]
+D, [2015-10-25T05:49:48.277034 #8820] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 3], ["caption_id", 2]]
+D, [2015-10-25T05:49:48.284466 #8820] DEBUG -- :   [1m[35mVote Load (0.1ms)[0m  SELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1  [["user_id", 3], ["caption_id", 10]]
+66.183.198.160 - - [25/Oct/2015:05:49:48 -0400] "GET /images/2/show HTTP/1.1" 200 2995 1.1706
+66.183.198.160 - - [25/Oct/2015:05:50:33 -0400] "GET /signup HTTP/1.1" 200 2295 0.1000
+66.183.198.160 - - [25/Oct/2015:05:50:34 -0400] "GET /signup HTTP/1.1" 200 2295 0.0640
+52.23.192.150 - - [25/Oct/2015:05:51:30 -0400] "GET /signup HTTP/1.1" 200 2295 0.0687
+D, [2015-10-25T05:51:51.220660 #8836] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:51:51.228473 #8836] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "cookie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "guuuuhha"], ["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"], ["created_at", "2015-10-25 09:51:51.223711"], ["updated_at", "2015-10-25 09:51:51.223711"]]
+D, [2015-10-25T05:51:51.232024 #8836] DEBUG -- :   [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:51:51 -0400] "POST /signup HTTP/1.1" 303 - 0.1483
+66.183.198.160 - - [25/Oct/2015:05:51:54 -0400] "GET /generate HTTP/1.1" 200 2728 1.2668
+D, [2015-10-25T05:51:58.261020 #8843] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:51:58.267925 #8843] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm1.staticflickr.com/713/22458243945_4066953917.jpg"], ["created_at", "2015-10-25 09:51:58.264047"], ["updated_at", "2015-10-25 09:51:58.264047"]]
+D, [2015-10-25T05:51:58.286642 #8843] DEBUG -- :   [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:51:58 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1572
+D, [2015-10-25T05:51:59.934551 #8846] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 10]]
+D, [2015-10-25T05:51:59.947044 #8846] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:52:00.422809 #8846] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 10]]
+D, [2015-10-25T05:52:00.435735 #8846] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 10]]
+66.183.198.160 - - [25/Oct/2015:05:52:00 -0400] "GET /images/10/show HTTP/1.1" 200 3166 0.6336
+D, [2015-10-25T05:52:09.386868 #8850] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 10]]
+D, [2015-10-25T05:52:09.398445 #8850] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:52:10.060334 #8850] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 10]]
+D, [2015-10-25T05:52:10.073625 #8850] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 10]]
+66.183.198.160 - - [25/Oct/2015:05:52:10 -0400] "GET /images/10/show HTTP/1.1" 200 3162 0.8269
+D, [2015-10-25T05:52:17.346421 #8858] DEBUG -- :   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:52:17.390057 #8858] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 10]]
+D, [2015-10-25T05:52:17.464922 #8858] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:52:17.470618 #8858] DEBUG -- :   [1m[35mSQL (0.5ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "MY MISSION MUST NOT FAIL."], ["user_id", 4], ["image_id", 10], ["created_at", "2015-10-25 09:52:17.468886"], ["updated_at", "2015-10-25 09:52:17.468886"]]
+D, [2015-10-25T05:52:17.484836 #8858] DEBUG -- :   [1m[36m (13.3ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:52:17 -0400] "POST /images/10/captions/new HTTP/1.1" 303 - 0.3266
+D, [2015-10-25T05:52:19.195402 #8861] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 10]]
+D, [2015-10-25T05:52:19.208288 #8861] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:52:21.524696 #8861] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 10]]
+D, [2015-10-25T05:52:21.550563 #8861] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 10]]
+D, [2015-10-25T05:52:21.557010 #8861] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 4], ["caption_id", 11]]
+66.183.198.160 - - [25/Oct/2015:05:52:21 -0400] "GET /images/10/show HTTP/1.1" 200 2790 2.4935
+66.183.198.160 - - [25/Oct/2015:05:54:57 -0400] "GET /generate HTTP/1.1" 200 2728 1.3195
+D, [2015-10-25T05:55:01.426850 #8869] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:55:01.434156 #8869] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  INSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)  [["url", "https://farm1.staticflickr.com/763/21837152673_e6c7c58619.jpg"], ["created_at", "2015-10-25 09:55:01.429919"], ["updated_at", "2015-10-25 09:55:01.429919"]]
+D, [2015-10-25T05:55:01.436769 #8869] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:55:01 -0400] "POST /generate/new HTTP/1.1" 303 - 0.1462
+D, [2015-10-25T05:55:03.150322 #8872] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 11]]
+D, [2015-10-25T05:55:03.164130 #8872] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:03.466721 #8872] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 11]]
+D, [2015-10-25T05:55:03.480631 #8872] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 11]]
+66.183.198.160 - - [25/Oct/2015:05:55:03 -0400] "GET /images/11/show HTTP/1.1" 200 3166 0.4634
+D, [2015-10-25T05:55:09.878498 #8876] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 11]]
+D, [2015-10-25T05:55:09.890795 #8876] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:10.355484 #8876] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 11]]
+D, [2015-10-25T05:55:10.367198 #8876] DEBUG -- :   [1m[35mCaption Load (0.2ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 11]]
+66.183.198.160 - - [25/Oct/2015:05:55:10 -0400] "GET /images/11/show HTTP/1.1" 200 3154 0.6280
+D, [2015-10-25T05:55:14.164753 #8884] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 11]]
+D, [2015-10-25T05:55:14.178552 #8884] DEBUG -- :   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:14.355120 #8884] DEBUG -- :   [1m[36mCaption Load (0.3ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 11]]
+D, [2015-10-25T05:55:14.369285 #8884] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 11]]
+66.183.198.160 - - [25/Oct/2015:05:55:14 -0400] "GET /images/11/show HTTP/1.1" 200 3159 0.3430
+D, [2015-10-25T05:55:18.471902 #8891] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 11]]
+D, [2015-10-25T05:55:18.501392 #8891] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:19.769298 #8891] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 11]]
+D, [2015-10-25T05:55:19.782743 #8891] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 11]]
+66.183.198.160 - - [25/Oct/2015:05:55:19 -0400] "GET /images/11/show HTTP/1.1" 200 3165 1.4433
+D, [2015-10-25T05:55:24.675123 #8899] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 11]]
+D, [2015-10-25T05:55:24.703351 #8899] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:24.981595 #8899] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 11]]
+D, [2015-10-25T05:55:24.996257 #8899] DEBUG -- :   [1m[35mCaption Load (0.4ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 11]]
+66.183.198.160 - - [25/Oct/2015:05:55:24 -0400] "GET /images/11/show HTTP/1.1" 200 3162 0.4524
+D, [2015-10-25T05:55:31.241771 #8907] DEBUG -- :   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:31.286110 #8907] DEBUG -- :   [1m[35mImage Load (0.3ms)[0m  SELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1  [["id", 11]]
+D, [2015-10-25T05:55:31.367319 #8907] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2015-10-25T05:55:31.376171 #8907] DEBUG -- :   [1m[35mSQL (0.7ms)[0m  INSERT INTO "captions" ("text", "user_id", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["text", "Into the honor of things."], ["user_id", 4], ["image_id", 11], ["created_at", "2015-10-25 09:55:31.373361"], ["updated_at", "2015-10-25 09:55:31.373361"]]
+D, [2015-10-25T05:55:31.379521 #8907] DEBUG -- :   [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+66.183.198.160 - - [25/Oct/2015:05:55:31 -0400] "POST /images/11/captions/new HTTP/1.1" 303 - 0.3237
+D, [2015-10-25T05:55:33.087860 #8910] DEBUG -- :   [1m[36mImage Load (0.3ms)[0m  [1mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT 1[0m  [["id", 11]]
+D, [2015-10-25T05:55:33.118941 #8910] DEBUG -- :   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."cookie_id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["cookie_id", "5d0355c5-8bb9-4067-b31f-4371bc27a8ff"]]
+D, [2015-10-25T05:55:33.873692 #8910] DEBUG -- :   [1m[36mCaption Load (0.2ms)[0m  [1mSELECT "captions".* FROM "captions" WHERE "captions"."image_id" = ?  ORDER BY "captions"."total_votes" ASC[0m  [["image_id", 11]]
+D, [2015-10-25T05:55:33.919858 #8910] DEBUG -- :   [1m[35mCaption Load (0.3ms)[0m  SELECT  "captions".* FROM "captions" WHERE "captions"."user_id" = ? AND "captions"."image_id" = ? LIMIT 1  [["user_id", 4], ["image_id", 11]]
+D, [2015-10-25T05:55:33.925929 #8910] DEBUG -- :   [1m[36mVote Load (0.2ms)[0m  [1mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = ? AND "votes"."caption_id" = ? LIMIT 1[0m  [["user_id", 4], ["caption_id", 12]]
+66.183.198.160 - - [25/Oct/2015:05:55:33 -0400] "GET /images/11/show HTTP/1.1" 200 2790 0.9714
