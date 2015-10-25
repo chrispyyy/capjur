@@ -79,6 +79,7 @@ post '/captions/vote/:id' do
   @vote = Vote.create(user_id: @user.id, caption_id: params[:id])
   caption = Caption.find(params[:id])
   @image = caption.image_id
+  image.total_votes += 1
   caption.total_votes += 1
   caption.save
   redirect "/images/#{@image}/show"
