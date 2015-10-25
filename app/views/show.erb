@@ -4,7 +4,7 @@
       <% else %>
         <div class="form-group">
           <form action="/images/<%=@image.id%>/captions/new" method="post">
-            <textarea placeholder="Enter your caption" class="form-cont" name="text"></textarea>
+            <textarea placeholder="Enter your caption" class="form-cont" name="text"><%= @sentance %></textarea>
               <div class="form-actions">
               <input name="image_id" value='<%= @image.id %>' type='hidden'/>
               <button class = "btn1 btn1-primary btn1-lg another1">Capjur It!</button></form>

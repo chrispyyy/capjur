@@ -7,6 +7,7 @@ gem 'activesupport'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
+gem 'literate_randomizer'
 
 gem 'puma'
 gem 'tux'

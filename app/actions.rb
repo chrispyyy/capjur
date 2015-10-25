@@ -1,4 +1,8 @@
+require 'literate_randomizer'
+
 helpers do
+
+
  def photos(n)
    recent = flickr.photos.getRecent(per_page: n)
      recent.map do |photo|
@@ -18,6 +22,21 @@ helpers do
  def current_user
    cookies[:user_id]
  end
+ 
+  def gen_sentance
+    d = LiterateRandomizer.create({:source_material_file => "quotes.txt"})
+    checker(d.sentence)
+  end
+
+  def checker(s)
+    if s.split(" ").length > 4 && s.split(" ").length < 11
+       s
+    else
+      gen_sentance
+    end
+  end
+
+
 end
 
 get '/history' do
@@ -34,7 +53,7 @@ end
 
 # Homepage (Root path)
 get '/' do
-  @photos = Image.order(:total_caption_votes)
+  @photos = Image.order(:total_caption_votes).reverse
   erb :'index'
 end
 
@@ -44,6 +63,7 @@ end
 get '/images/:image_id/show' do
   @image = Image.find(params[:image_id])
   @user = User.where(cookie_id: current_user).first
+  @sentance = gen_sentance
   x = @image.captions
   @y = x.order(:total_votes).reverse
   erb :'show'
