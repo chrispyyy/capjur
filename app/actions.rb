@@ -35,7 +35,7 @@ end
 # Homepage (Root path)
 get '/' do
   @photos = Image.order(:total_caption_votes).reverse
-  @captions = 
+  @captions =
   erb :'index'
 end
 
