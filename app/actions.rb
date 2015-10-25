@@ -29,7 +29,7 @@ helpers do
   end
 
   def checker(s)
-    if s.split(" ").length > 4 && s.split(" ").length < 11
+    if s.split(" ").length > 3 && s.split(" ").length < 6
        s
     else
       gen_sentance
