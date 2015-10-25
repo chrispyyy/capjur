@@ -48,6 +48,12 @@ get "/signup" do
   erb :"signup"
 end
 
+get "/logout" do
+  cookies[:user_id] = nil
+  redirect '/'
+end
+
+
 #A user can choose from a list of random pictures
 get '/generate' do #Call Flickr API to return # images
  @photos = photos(1)
