@@ -12,33 +12,33 @@ img{
 }
 
 .navbar1 {
-    margin-bottom:0;
+  margin-bottom:0;
   }
 
 .vertical-center {
-    min-height: 100%;
-    min-height: 100vh;
+  min-height: 100%;
+  min-height: 100vh;
 }
 
 .hero-unit1{
-padding: 40px;/* CHANGE PADDING HERE*/
-margin-bottom: 30px;
-font-size: 18px;
-font-weight: 200;
-line-height: 30px;
-color: inherit;
-background-color: #F5F5F5; /* CHANGE BACKGROUND HERE*/
--webkit-border-radius: 6px;
--moz-border-radius: 6px;
-border-radius: 6px;
+  padding: 40px;/* CHANGE PADDING HERE*/
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  background-color: #F5F5F5; /* CHANGE BACKGROUND HERE*/
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 
 IMG.displayed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    margin-top: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 .h1-hero{
@@ -52,33 +52,33 @@ IMG.displayed {
 }
 
 .btn1 {
-  padding: 14px 24px;
-   border: 0 none;
-   font-weight: 700;
-   letter-spacing: 1px;
-   text-transform: uppercase;
-   margin-top: 5px;
+ padding: 14px 24px;
+ border: 0 none;
+ font-weight: 700;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ margin-top: 5px;
 }
 
 .btn1:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
+  outline: 0 none;
 }
 
 .btn1-primary {
-    background: #0099cc;
-    color: #ffffff;
+  background: #0099cc;
+  color: #ffffff;
 }
 
 .btn1.outline {
-    background: none;
-    padding: 12px 22px;
-    margin-top: 10px;
+  background: none;
+  padding: 12px 22px;
+  margin-top: 10px;
 }
 
 .btn1-primary.outline {
-    border: 2px solid #0099cc;
-    color: #0099cc;
-    border-radius: 5px;
+  border: 2px solid #0099cc;
+  color: #0099cc;
+  border-radius: 5px;
 }
 
 .btn1-primary.outline:hover, .btn1-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
@@ -96,13 +96,13 @@ IMG.displayed {
 .btn-form{
   Margin: 0 auto;
   Width: 200px;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .capjur-home-btn {
-   background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5CCD00),color-stop(100%,#4AA400));
-   color: #F5F5F5;
-   border-radius: 5px;
+ background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5CCD00),color-stop(100%,#4AA400));
+ color: #F5F5F5;
+ border-radius: 5px;
 }
 
 .another{
@@ -112,16 +112,15 @@ IMG.displayed {
 }
 
 .form-actions {
-    margin: 0;
-    background-color: transparent;
-    text-align: center;
-    height: 70px;
+  margin: 0;
+  background-color: transparent;
+  text-align: center;
+  height: 70px;
 }
 
 .badge-count {
   background-color: #0099CC;
   margin-left: 8px;
-  /*#a30c49;*/
 }
 
 .vote-badge{
@@ -142,9 +141,6 @@ IMG.displayed {
 .top-comment-block {
   margin-top: 5px;
   margin-bottom: 30px;
-  /*border-style: solid;
-  border-width: 2px;
-  border-color: #000000;*/
   border-radius: 5px;
   padding: 5px;
   height: 70px;
@@ -185,4 +181,44 @@ IMG.displayed {
 
 .user-text{
   float: right;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+.form-cont{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: 75%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  }
+
+.btn-form1{
+  Margin: 0 auto;
+  margin-top: 0px;
+  float: right;
+  font-size: 15px;
+  padding: 5px 5px 5px 5px;
+  }
+
+.img-logo{
+ height: 75px;
+ width: 100px;
+}
+
+.nav1{
+  padding: 0 0 0 0;
+}
+
+.another1{
+  color:#F5F5F5;
+  border-radius: 5px;
 }
