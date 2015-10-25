@@ -208,3 +208,17 @@ IMG.displayed {
   font-size: 15px;
   padding: 5px 5px 5px 5px;
   }
+
+.img-logo{
+ height: 75px;
+ width: 100px;
+}
+
+.nav1{
+  padding: 0 0 0 0;
+}
+
+.another1{
+  color:#F5F5F5;
+  border-radius: 5px;
+}
