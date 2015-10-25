@@ -26,6 +26,12 @@ get '/history' do
  erb :'history'
 end
 
+get '/all' do
+ @images = Caption.all
+ erb :'all'
+end
+
+
 # Homepage (Root path)
 get '/' do
   @photos = Image.order(:total_caption_votes).reverse
