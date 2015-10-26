@@ -5,7 +5,7 @@
     <div class="image-container">
         <a href='images/<%= caption.image_id%>/show'><img class="user_images" src="<%=caption.image.url %>"/></a>
       <div class="caption-box caption">
-        <span class="badge badge-count vote-badge">Votes: <%=caption.total_votes%></span><span> "<%=caption.text %>"</span>
+        <span class="badge badge-count vote-badge">Votes: <%=caption.total_votes%></span><span> "<%=caption.text %>"</span><span><h6>User: <%= caption.user.name %></h6> </span>
       </div>
     </div>
     <% end %>
