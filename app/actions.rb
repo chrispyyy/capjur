@@ -45,23 +45,18 @@ get '/history' do
 end
 
 get '/all' do
-<<<<<<< HEAD
-
-=======
   images = Caption.all
   list = []
-  images.each do |c|
-    list << c.image_id
-  end
+    images.each do |c|
+      list << c.image_id
+    end
   yay = list.uniq
   @photos = []
-  yay.each do |i|
-    @photos << Caption.find_by(image_id: i)
-  end
+    yay.each do |i|
+      @photos << Caption.find_by(image_id: i)
+    end
   @photos
-
  erb :'all'
->>>>>>> 30ae095ddaafd91478887d7fd212a7b5061b34a4
 end
 
 
