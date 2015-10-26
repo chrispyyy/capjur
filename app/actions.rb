@@ -46,8 +46,7 @@ get '/history' do
 end
 
 get '/all' do
- @images = Caption.all
- erb :'all'
+
 end
 
 
@@ -57,15 +56,14 @@ get '/' do
   erb :'index'
 end
 
-###########################################################
-#As a user I can add a caption to a picture that already has captions
-
 get '/images/:image_id/show' do
   @image = Image.find(params[:image_id])
   @user = User.where(cookie_id: current_user).first
   @sentance = gen_sentance
   x = @image.captions
   @y = x.order(:total_votes).reverse
+
+  
   erb :'show'
 end
 
